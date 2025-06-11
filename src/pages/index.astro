@@ -1,11 +1,28 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro
+import MainCarousel from '../components/MainCarousel.jsx';
+import Layout from '../layouts/Layout.astro'; // Optional: if you have a base layout
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// For client:load, ensure Astro loads the React component immediately
+// and hydrates it on the client.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Our Film Production Company">
+  <main>
+    <MainCarousel client:load />
+  </main>
 </Layout>
+
+<style is:global>
+  /* Ensure the body and html take up full height for the carousel */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Important for full-screen carousel */
+  }
+  /* Remove default Astro margins if present */
+  body {
+    background-color: #000; /* Ensure black background initially */
+  }
+</style>

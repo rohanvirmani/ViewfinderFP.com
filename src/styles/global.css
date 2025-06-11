@@ -1,0 +1,40 @@
+/* src/styles/global.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Hide scrollbars due to full-screen content */
+    font-family: 'Arial', sans-serif; /* Example font */
+    color: #fff; /* Default text color for dark backgrounds */
+  }
+  
+  #astro-root, #root { /* Astro root container, adjust if your root ID is different */
+    height: 100%;
+  }
+  
+  /* Swiper overrides for full screen */
+  .main-swiper-container {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .main-swiper-container .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Default background for slides */
+  }
+  
+  /* Customize Swiper navigation/pagination if needed */
+  .main-swiper-container .swiper-button-next,
+  .main-swiper-container .swiper-button-prev {
+    color: white; /* Example: white arrows */
+  }
+  
+  .main-swiper-container .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .main-swiper-container .swiper-pagination-bullet-active {
+    background: white;
+  }
