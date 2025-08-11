@@ -20,34 +20,44 @@ import '../styles/global.css'; // Example: for HTML/body height 100%
 
 export default function MainCarousel() {
   return (
-    <Swiper
-      modules={[Navigation, Pagination, EffectFade, Autoplay]} // Add Autoplay if you want auto-slide
-      spaceBetween={0}
-      slidesPerView={1}
-      navigation // Enable navigation arrows
-      pagination={{ clickable: true }} // Enable clickable dots
-      effect="fade" // Apply fade effect
-      speed={800} // Transition speed in ms
-      autoplay={{
-        delay: 5000, // Autoplay delay in ms
-        disableOnInteraction: false, // Keep autoplaying after user interaction
-      }}
-      loop={true} // Infinite loop
-      className="main-swiper-container" // Custom class for styling
-      style={{ height: '100vh', width: '100vw' }} // Direct style for full viewport
-    >
-      <SwiperSlide>
-        <WelcomePage />
-      </SwiperSlide>
-      <SwiperSlide>
-        <ProjectsPage />
-      </SwiperSlide>
-      <SwiperSlide>
-        <AboutUsPage />
-      </SwiperSlide>
-      <SwiperSlide>
-        <ContactUsPage />
-      </SwiperSlide>
-    </Swiper>
+    <><head><link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet"
+      /></head>
+      <Swiper
+        modules={[Navigation, Pagination, EffectFade]} // Add Autoplay if you want auto-slide
+        spaceBetween={0}
+        slidesPerView={1}
+        navigation // Enable navigation arrows
+        pagination={{ clickable: true }} // Enable clickable dots
+        effect="fade" // Apply fade effect
+        speed={800} // Transition speed in ms
+
+
+
+
+        // autoplay={{
+        //   delay: 5000, // Autoplay delay in ms
+        //   disableOnInteraction: false, // Keep autoplaying after user interaction
+        // }}
+        loop={true} // Infinite loop
+        className="main-swiper-container" // Custom class for styling
+        style={{ height: '100vh', width: '100vw' }} // Direct style for full viewport
+      >
+        <SwiperSlide>
+          <WelcomePage />
+        </SwiperSlide>
+        <SwiperSlide>
+          <AboutUsPage />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProjectsPage />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ContactUsPage />
+        </SwiperSlide>
+      </Swiper></>
   );
 }

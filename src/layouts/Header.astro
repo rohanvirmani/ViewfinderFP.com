@@ -1,0 +1,42 @@
+---
+// You can use a dedicated CSS file or a style block here
+---
+<header class="main-header">
+  <nav class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about-us">About Us</a>
+    <a href="/projects">Film Projects</a>
+    <a href="/contact">Contact Us</a>
+  </nav>
+</header>
+
+<style>
+  .main-header {
+    background-color: #111;
+    padding: 1rem 2rem;
+    position: fixed; /* Fixes the header to the top of the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the header is on top of other content */
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #ddd;
+  }
+</style>

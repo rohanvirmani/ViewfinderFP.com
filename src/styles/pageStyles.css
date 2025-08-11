@@ -17,7 +17,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(8px); /* Adjust blur strength as needed */
+    backdrop-filter: blur(0px); /* Adjust blur strength as needed */
     background-color: rgba(0, 0, 0, 0.3); /* Optional: add a slight dark overlay */
     z-index: 1; /* Below content, above background image */
   }
@@ -75,3 +75,77 @@
   .projects-swiper .swiper-pagination-bullet-active {
     background: lightgray;
   }
+
+
+  /* All styles for the welcome page */
+
+.welcome-page {
+  /* General styles for the welcome page container */
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.welcome-page .background-video {
+  /* Styles for the background video within the welcome page */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.welcome-page .background-blur-overlay {
+  /* Styles for the blur overlay on the welcome page */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+/* Scoped styles for the welcome page */
+.welcome-page .page-content {
+  color: rgba(255, 255, 255, 0.685);
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+/* Optional: To make the header text bold */
+.welcome-page .page-content h1 {
+  font-weight: 700; /* Or 'bold' */
+  color: rgba(255, 255, 255, 0.685);
+}
+
+.welcome-page {
+  /* Set the parent to a flex container */
+  display: flex;
+  
+  /* Center items horizontally */
+  justify-content: center;
+  
+  /* Center items vertically */
+  align-items: center;
+  
+  /* Stack items vertically */
+  flex-direction: column; 
+}
+
+.about-us-page .page-content h1 {
+  font-weight: 700; /* Or 'bold' */
+  color: white;
+}
+
+.about-us-page .page-content {
+  color: white;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
