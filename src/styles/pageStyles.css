@@ -41,41 +41,59 @@
     font-size: 1.2em;
     line-height: 1.6;
   }
-  
+  .scrollable-container {
+  max-height: calc(100vh - 130px); /* Adjust '100px' to account for your header and other elements */
+  overflow-y: auto;
+  padding-right: 15px; /* Adds space for the scrollbar to avoid content being hidden */
+}
   /* Project Card Styles */
-  .projects-page .project-card {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for cards */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    height: 100%; /* Fill slide height */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Space out content nicely */
-  }
+ .projects-grid {
+  display: grid;
+  padding-top: 100px;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal-sized columns */
+  gap: 60px; /* Adjust the spacing between images as needed */
+  width: 100%;
   
-  .projects-page .project-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 15px;
-  }
-  
-  /* Adjust nested Swiper pagination/navigation if needed */
-  .projects-swiper .swiper-button-next,
-  .projects-swiper .swiper-button-prev {
-    color: lightgray;
-  }
-  
-  .projects-swiper .swiper-pagination-bullet {
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  .projects-swiper .swiper-pagination-bullet-active {
-    background: lightgray;
-  }
+}
 
+.project-card {
+  width: 100%;
+  /* Optional: Add styling for the card itself, like a border or box-shadow */
+}
+
+.project-image {
+  width: 800px;
+  height: 300px;
+  display: block; /* Removes any extra space below the image */
+  object-fit: cover; /* Ensures images fill their container without distortion */
+  aspect-ratio: 16 / 9; /* Sets a consistent aspect ratio, e.g., 16:9 */
+  gap: 60px; /* Adjust the spacing between images as needed */
+}
+
+.project-image-container {
+  display: flex; /* Or display: grid; */
+  gap: 20px; /* Adjust the spacing as needed */
+  flex-wrap: wrap; /* Allows images to wrap to the next line if needed */
+}
+
+.projects-page .page-content {
+   background-color: rgba(68, 68, 68, 0.7);
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal-sized columns */
+  padding-top: 130px;
+    /* Position the text content to the left side */
+  width:40%; /* Adjust this percentage as needed */
+  text-align: left; /* Ensure text is left-aligned */
+   /* Add a small margin from the left edge */
+  
+  padding: 2rem; /* Add some padding for spacing inside the container */
+  border-radius: 8px; /* Optional: adds rounded corners */ 
+  font-family: 'Gotham', serif;
+  text-align: center;
+  
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+  padding-right: 15px; /* Adds space for the scrollbar to avoid content being hidden */
+}
 
   /* All styles for the welcome page */
 
@@ -145,7 +163,19 @@
 }
 
 .about-us-page .page-content {
-  color: white;
-  font-family: 'Playfair Display', serif;
+   background-color: rgba(68, 68, 68, 0.7);
+
+
+    /* Position the text content to the left side */
+  width:40%; /* Adjust this percentage as needed */
+  text-align: left; /* Ensure text is left-aligned */
+  margin-right: 30%; /* Add a small margin from the left edge */
+  
+  padding: 2rem; /* Add some padding for spacing inside the container */
+  border-radius: 8px; /* Optional: adds rounded corners */ 
+  font-family: 'Gotham', serif;
   text-align: center;
 }
+
+
+
