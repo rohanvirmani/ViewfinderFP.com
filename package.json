@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
+    "@tailwindcss/vite": "^4.1.12",
     "@types/react": "^19.1.7",
     "@types/react-dom": "^19.1.6",
     "astro": "^5.12.9",
@@ -17,7 +18,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-swiper": "^0.1.5",
-    "swiper": "^11.2.8"
+    "swiper": "^11.2.8",
+    "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
     "wrangler": "^4.19.1"

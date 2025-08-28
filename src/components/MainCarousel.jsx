@@ -27,6 +27,7 @@ export default function MainCarousel() {
         rel="stylesheet"
       /></head>
       <Swiper
+        id="main-swiper"
         modules={[Navigation, Pagination, EffectFade]} // Add Autoplay if you want auto-slide
         spaceBetween={0}
         slidesPerView={1}
