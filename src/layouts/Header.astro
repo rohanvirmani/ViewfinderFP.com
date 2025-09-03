@@ -8,30 +8,49 @@
     class="h-auto w-[130px] object-contain ml-[40px]" 
   />
   <nav class="flex justify-end gap-8 items-center">
-    <a href="#" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300" data-index="0">Home</a>
-    <a href="#" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300" data-index="1">About Us</a>
-    <a href="#" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300" data-index="2">Film Projects</a>
-    <a href="#" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300" data-index="3">Contact Us</a>
+    <a data-target="home-page" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300">Home</a>
+    <a data-target="about-us-page" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300">About Us</a>
+    <a data-target="projects-page" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300">Film Projects</a>
+    <a data-target="contact-us-page" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300">Contact Us</a>
+  </nav>
   </nav>
 </header>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const swiperEl = document.getElementById('main-swiper');
-    const swiperInstance = (swiperEl as any)?.swiper;
+  // A robust script to wait for the Swiper instance
+  const swiperEl = document.getElementById('main-swiper');
+  const navLinks = document.querySelectorAll('[data-target]');
+  
+  if (swiperEl) {
+    const checkSwiper = () => {
+      // Swiper attaches its instance to the DOM element after hydration
+      const swiperInstance = (swiperEl as any).swiper;
+      
+      if (swiperInstance) {
+        // Swiper is ready, so we can add the event listeners now
+        navLinks.forEach(link => {
+          link.addEventListener('click', (event) => {
+            event.preventDefault(); 
+            const targetHash = link.getAttribute('data-target');
+            
+            let slideIndex = -1;
+            swiperInstance.slides.forEach((slide: { dataset: { hash: string | null; }; }, index: number) => {
+              if (slide.dataset.hash === targetHash) {
+                slideIndex = index;
+              }
+            });
 
-    if (swiperInstance) {
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          const target = event.target as HTMLElement | null;
-          if (target && target.dataset.index !== undefined) {
-            const index = parseInt(target.dataset.index);
-            swiperInstance.slideToLoop(index);
-          }
+            if (slideIndex !== -1) {
+              swiperInstance.slideTo(slideIndex);
+            }
+          });
         });
-      });
-    }
-  });
+      } else {
+        // Swiper is not ready, so we check again after a short delay
+        setTimeout(checkSwiper, 50);
+      }
+    };
+    
+    checkSwiper();
+  }
 </script>

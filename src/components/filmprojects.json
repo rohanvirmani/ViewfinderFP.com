@@ -1,0 +1,75 @@
+[
+  {
+    "slug": "small-wishes",
+    "title": "Small Wishes",
+    "about": "A rooster and a story of long term vs short term gain.",
+    "images": [
+      "/images/Small-wishes-poster.png",
+      "/images/Small-wishes-1.png",
+      "/images/Small-wishes-2.png",
+      "/images/Small-wishes-3.png"
+    ],
+    "director": "Jane Doe",
+    "producers": "John Smith",
+    "writer": "Alice Brown",
+    "starring": "Michael Black",
+    "releaseDate": "October 26, 2024",
+    "runningTime": "120 minutes",
+    "genre": "Sci-Fi, Adventure",
+    "budget": "$50 Million",
+    "productionCompany": "Viewfinder Films",
+    "cinematographer": "Chris Blue",
+    "editor": "Sarah Yellow",
+    "music": "David Purple",
+    "artDirector": "Laura Orange",
+    "soundDesigner": "Tom Gray",
+    "cast": [
+      "Actor A as Character X",
+      "Actor B as Character Y",
+      "Actor C as Character Z"
+    ],
+    "dialogue": "A mix of witty and dramatic lines that enhance the storytelling.",
+    "certification": "PG-13",
+    "festivals": [
+      "Sundance Film Festival",
+      "Toronto International Film Festival"
+    ],
+    "filmlink": "https://www.youtube.com/embed/4tjQd5NkjN4?si=V6W6tYh4o_sfUrYb"
+  },
+  {
+    "slug": "little-wings",
+    "title": "Little Wings",
+    "about": "A gripping historical drama that tells the story of a forgotten hero.",
+    "images": [
+      "/images/project2.jpg",
+      "https://via.placeholder.com/600x400/FF0000/FFFFFF?text=Film+B+Image+2",
+      "https://via.placeholder.com/600x400/FF0000/FFFFFF?text=Film+B+Image+3"
+    ],
+      "director": "Jane Doe",
+    "producers": "John Smith",
+    "writer": "Alice Brown",
+    "starring": "Michael Black",
+    "releaseDate": "October 26, 2024",
+    "runningTime": "120 minutes",
+    "genre": "Sci-Fi, Adventure",
+    "budget": "$50 Million",
+    "productionCompany": "Viewfinder Films",
+    "cinematographer": "Chris Blue",
+    "editor": "Sarah Yellow",
+    "music": "David Purple",
+    "artDirector": "Laura Orange",
+    "soundDesigner": "Tom Gray",
+    "cast": [
+      "Actor A as Character X",
+      "Actor B as Character Y",
+      "Actor C as Character Z"
+    ],
+    "dialogue": "A mix of witty and dramatic lines that enhance the storytelling.",
+    "certification": "PG-13",
+    "festivals": [
+      "Sundance Film Festival",
+      "Toronto International Film Festival"
+    ],
+    "filmlink": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  }
+]

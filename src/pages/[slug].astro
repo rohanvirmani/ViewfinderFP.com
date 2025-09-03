@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import films from '../components/filmprojects.json';
+import {Swiper, SwiperSlide} from 'swiper/react'
+import React from 'react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import SwiperCarousel from '../components/FilmImages.jsx';
+
+// import required modules
+import { Navigation, Pagination } from 'swiper/modules';
+import type { loadRenderers } from 'astro:container';
+
+export async function getStaticPaths() {
+  return films.map((film) => ({
+    params: { slug: film.slug },
+    props: { film },
+  }));
+}
+
+const { film } = Astro.props;
+---
+<Layout title={film.title} class="bg-[rgba(212,208,208,0.7)]">
+  <div class="mx-auto py-8 px-20 pt-[130px] bg-[rgba(189, 186, 186, 0.7)] max-h-screen overflow-y-auto transparent-scrollbar p">
+    <header class="text-center mb-12">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-black leading-tight tracking-wide text-left">
+        {film.title}
+      </h1>
+    </header>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-4  pb-2 text-black">
+        About
+      </h2>
+      <p class="text-lg leading-relaxed text-black">
+        {film.about}
+      </p>
+    </section>
+
+<section class="mb-12">
+  <h2 class="text-3xl font-bold mb-4  pb-2 text-black">
+    Images
+  </h2>
+    <SwiperCarousel images={film.images} client:load />
+  
+</section>
+
+    <section>
+      <h2 class="text-3xl font-bold mb-4  pb-2 text-black">
+        Film Info
+      </h2>
+      <div class="flex flex-col md:flex-row md:justify-between md:gap-12  text-black">
+        <div class="w-full md:w-1/2 mb-6 md:mb-0">
+          <ul class="list-disc pl-6 space-y-2 text-lg">
+            <li><span class="font-semibold">Director:</span> {film.director}</li>
+            <li><span class="font-semibold">Producer:</span> {film.producers}</li>
+            <li><span class="font-semibold">Production Company:</span> {film.productionCompany}</li>
+            <li><span class="font-semibold">Writer:</span> {film.writer}</li>
+            <li><span class="font-semibold">Cinematographer:</span> {film.cinematographer}</li>
+            <li><span class="font-semibold">Editor:</span> {film.editor}</li>
+             <li><span class="font-semibold">Music:</span> {film.music}</li>
+            <li><span class="font-semibold">Art Director:</span> {film.artDirector}</li>
+             <li><span class="font-semibold">Sound Designers:</span> {film.soundDesigner}</li>
+           
+            
+          </ul>
+        </div>
+        <div class="w-full md:w-1/2">
+          <ul class="list-disc pl-6 space-y-2 text-lg">
+              <li><span class="font-semibold">Cast:</span> {film.cast}</li>
+              <li><span class="font-semibold">Dialogue:</span> {film.dialogue}</li>
+              <li><span class="font-semibold">Genre:</span> {film.genre}</li>
+              <li><span class="font-semibold">Length:</span> {film.runningTime}</li>
+              <li><span class="font-semibold">Certification:</span> {film.certification}</li>
+              <li><span class="font-semibold">Festivals & Awards:</span> {film.festivals}</li>
+        
+        </div>
+      </div>
+    </section>
+
+    <section>
+       <h2 class="text-3xl font-bold mb-4  pb-2 text-black">
+        <br>
+      
+      </h2>
+  <div class="flex justify-center items-center">
+   <iframe width="1280" height="720" src={film.filmlink} title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+  </div>
+    </section>
+
+  </div>
+</Layout>
+<style>
+  /* Target the specific container */
+  .transparent-scrollbar {
+    /* For Firefox */
+    scrollbar-width: none;
+  }
+
+  /* For WebKit browsers (Chrome, Safari, Edge) */
+  .transparent-scrollbar::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+</style>

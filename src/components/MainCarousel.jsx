@@ -1,7 +1,7 @@
 // src/components/MainCarousel.jsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules'; // Add Autoplay if desired
+import { Navigation, Pagination, EffectFade, Autoplay, HashNavigation } from 'swiper/modules'; // Add Autoplay if desired
 
 // Import Swiper styles
 import 'swiper/css';
@@ -28,7 +28,7 @@ export default function MainCarousel() {
       /></head>
       <Swiper
         id="main-swiper"
-        modules={[Navigation, Pagination, EffectFade]} // Add Autoplay if you want auto-slide
+        modules={[Navigation, Pagination, EffectFade, HashNavigation]} // Add Autoplay if you want auto-slide
         spaceBetween={0}
         slidesPerView={1}
         navigation // Enable navigation arrows
@@ -46,17 +46,18 @@ export default function MainCarousel() {
         loop={true} // Infinite loop
         className="main-swiper-container" // Custom class for styling
         style={{ height: '100vh', width: '100vw' }} // Direct style for full viewport
+        hashNavigation // Enable hash navigation
       >
-        <SwiperSlide>
+        <SwiperSlide data-hash="home-page">
           <WelcomePage />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide data-hash="about-us-page">
           <AboutUsPage />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide data-hash="projects-page">
           <ProjectsPage />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide data-hash="contact-us-page">
           <ContactUsPage />
         </SwiperSlide>
       </Swiper></>
