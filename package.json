@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.7",
     "@astrojs/react": "^4.3.0",
     "@tailwindcss/vite": "^4.1.12",
     "@types/react": "^19.1.7",
@@ -18,6 +19,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-swiper": "^0.1.5",
+    "resend": "^6.0.2",
     "swiper": "^11.2.8",
     "tailwindcss": "^4.1.12"
   },

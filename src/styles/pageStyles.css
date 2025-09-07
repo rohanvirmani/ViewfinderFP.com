@@ -132,7 +132,7 @@
 
 /* Scoped styles for the welcome page */
 .welcome-page .page-content {
-  color: rgba(255, 255, 255, 0.685);
+  color: rgba(255, 255, 255, 0.685);page-wrapper 
   font-family: 'Playfair Display', serif;
   text-align: center;
 }
@@ -177,5 +177,19 @@
   text-align: center;
 }
 
+.contact-us-page .page-content {
+   background-color: rgba(189, 186, 186, 0.7);
+
+
+    /* Position the text content to the left side */
+  width:40%; /* Adjust this percentage as needed */
+  text-align: left; /* Ensure text is left-aligned */
+  margin-left: 30%; 
+  
+  padding: 2rem; /* Add some padding for spacing inside the container */
+  border-radius: 8px; /* Optional: adds rounded corners */ 
+  font-family: 'Gotham', serif;
+  text-align: center;
+}
 
 
