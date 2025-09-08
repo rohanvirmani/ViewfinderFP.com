@@ -6,7 +6,7 @@ export default function WelcomePage() {
   return (
     <div className="page-wrapper welcome-page">
        <video className="background-video" autoPlay loop muted>
-        <source src="/videos/VFP Home Page - Loop High quality.mp4" type="video/mp4" />
+        <source src="/videos/VFP Home Page - Loop.mp4" type="video/mp4" />
       </video>
       {/* <div className="background-blur-overlay"></div> For the blur effect */}
       <div className="page-content welcome-page">
