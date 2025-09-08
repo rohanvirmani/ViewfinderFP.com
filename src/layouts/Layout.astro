@@ -2,30 +2,29 @@
 // This is the "frontmatter" section for your Astro component.
 // You can define props, import components, or fetch data here.
 import Header from './Header.astro';
-// import Footer from '../components/Footer.astro';
-import '../styles/global.css'; // Link to your global CSS file
+import '../styles/global.css';
 ---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Viewfinder Film Productions</title>
-	</head>
-	<body class="bg-[rgba(224,219,219,0.7)] overflow-y-auto">
-		<Header/>
-		<slot class="pt-[130px]" />
-		<!-- <Footer /> -->
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Viewfinder Film Productions</title>
+  </head>
+  <body class="bg-[rgba(224,219,219,0.7)] overflow-y-auto">
+    <Header/>
+    <slot class="pt-[80px] md:pt-[130px]" />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
 </style>

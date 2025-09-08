@@ -1,4 +1,4 @@
-/* src/styles/pageStyles.css */
+/* Base styles */
 .page-wrapper {
     width: 100%;
     height: 100%;
@@ -8,188 +8,274 @@
     position: relative;
     background-size: cover;
     background-position: center;
-    overflow: hidden; /* Ensure content doesn't spill out */
-  }
-  
-  .background-blur-overlay {
+    overflow: hidden;
+}
+
+.background-blur-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(0px); /* Adjust blur strength as needed */
-    background-color: rgba(0, 0, 0, 0.3); /* Optional: add a slight dark overlay */
-    z-index: 1; /* Below content, above background image */
-  }
-  
-  .page-content {
-    position: relative;
-    z-index: 2; /* Ensure content is above the blur overlay */
-    text-align: center;
-    padding: 20px;
-    max-width: 900px;
-    color: white; /* Ensure text is visible */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Enhance text readability */
-  }
-  
-  .page-content h1, .page-content h2 {
-    font-size: 3em;
-    margin-bottom: 20px;
-  }
-  
-  .page-content p {
-    font-size: 1.2em;
-    line-height: 1.6;
-  }
-  .scrollable-container {
-  max-height: calc(100vh - 130px); /* Adjust '100px' to account for your header and other elements */
-  overflow-y: auto;
-  padding-right: 15px; /* Adds space for the scrollbar to avoid content being hidden */
-}
-  /* Project Card Styles */
- .projects-grid {
-  display: grid;
-  padding-top: 100px;
-  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal-sized columns */
-  gap: 60px; /* Adjust the spacing between images as needed */
-  width: 100%;
-  
+    backdrop-filter: blur(0px);
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
-.project-card {
-  width: 100%;
-  /* Optional: Add styling for the card itself, like a border or box-shadow */
+.page-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 16px;
+    width: 90%;
+    max-width: 900px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 auto;
+}
+
+.page-content h1, .page-content h2 {
+    font-size: 2em;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+    .page-content {
+        padding: 20px;
+    }
+    
+    .page-content h1, .page-content h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+}
+
+.page-content p {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+    .page-content p {
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+}
+
+.scrollable-container {
+    max-height: calc(100vh - 95px);
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+    .scrollable-container {
+        max-height: calc(100vh - 130px);
+    }
+}
+
+/* Project styles */
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+}
+
+@media (min-width: 640px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 60px;
+        padding-top: 130px;
+    }
 }
 
 .project-image {
-  width: 800px;
-  height: 300px;
-  display: block; /* Removes any extra space below the image */
-  object-fit: cover; /* Ensures images fill their container without distortion */
-  aspect-ratio: 16 / 9; /* Sets a consistent aspect ratio, e.g., 16:9 */
-  gap: 60px; /* Adjust the spacing between images as needed */
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
 }
 
 .project-image-container {
-  display: flex; /* Or display: grid; */
-  gap: 20px; /* Adjust the spacing as needed */
-  flex-wrap: wrap; /* Allows images to wrap to the next line if needed */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Projects page specific */
 .projects-page .page-content {
-   background-color: rgba(189, 186, 186, 0.7);
-  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal-sized columns */
-  padding-top: 130px;
-    /* Position the text content to the left side */
-  width:40%; /* Adjust this percentage as needed */
-  text-align: left; /* Ensure text is left-aligned */
-   /* Add a small margin from the left edge */
-  
-  padding: 2rem; /* Add some padding for spacing inside the container */
-  border-radius: 8px; /* Optional: adds rounded corners */ 
-  font-family: 'Gotham', serif;
-  text-align: center;
-  
-  max-height: calc(100vh - 130px);
-  overflow-y: auto;
-  padding-right: 15px; /* Adds space for the scrollbar to avoid content being hidden */
+    background-color: rgba(189, 186, 186, 0.7);
+    border-radius: 8px;
+    font-family: 'Gotham', serif;
+    max-height: calc(100vh - 95px); /* Adjusted for mobile */
+    overflow-y: auto;
+    margin: 0 auto;
+    padding: 1.5rem;
+    position: relative;
+    margin-top: 95px;
 }
 
-  /* All styles for the welcome page */
+@media (min-width: 768px) {
+    .projects-page .page-content {
+        max-height: calc(100vh - 130px); /* Adjusted for desktop */
+        margin-top: 130px;
+    }
+}
 
+/* Smooth scrolling for the container */
+.projects-page .page-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar styling */
+.projects-page .page-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.projects-page .page-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.projects-page .page-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+/* Welcome page styles */
 .welcome-page {
-  /* General styles for the welcome page container */
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 
 .welcome-page .background-video {
-  /* Styles for the background video within the welcome page */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
-.welcome-page .background-blur-overlay {
-  /* Styles for the blur overlay on the welcome page */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px);
-  z-index: -1;
-}
-
-/* Scoped styles for the welcome page */
 .welcome-page .page-content {
-  color: rgba(255, 255, 255, 0.685);
-  font-family: 'Playfair Display', serif;
-  text-align: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
-/* Optional: To make the header text bold */
-.welcome-page .page-content h1 {
-  font-weight: 700; /* Or 'bold' */
-  color: rgba(255, 255, 255, 0.685);
+@media (min-width: 768px) {
+    .welcome-page .page-content {
+        padding: 24px;
+        max-width: 800px;
+    }
 }
 
-.welcome-page {
-  /* Set the parent to a flex container */
-  display: flex;
-  
-  /* Center items horizontally */
-  justify-content: center;
-  
-  /* Center items vertically */
-  align-items: center;
-  
-  /* Stack items vertically */
-  flex-direction: column; 
-}
-
-.about-us-page .page-content h1 {
-  font-weight: 700; /* Or 'bold' */
-  color: white;
-}
-
+/* About us page styles */
 .about-us-page .page-content {
-   background-color: rgba(189, 186, 186, 0.7);
-
-
-    /* Position the text content to the left side */
-  width:40%; /* Adjust this percentage as needed */
-  text-align: left; /* Ensure text is left-aligned */
-  margin-right: 30%; /* Add a small margin from the left edge */
-  
-  padding: 2rem; /* Add some padding for spacing inside the container */
-  border-radius: 8px; /* Optional: adds rounded corners */ 
-  font-family: 'Gotham', serif;
-  text-align: center;
+    background-color: rgba(189, 186, 186, 0.7);
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 8px;
+    font-family: 'Gotham', serif;
+    text-align: left;
 }
 
+@media (min-width: 768px) {
+    .about-us-page .page-content {
+        width: 60%;
+        padding: 2rem;
+        margin-right: 20%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .about-us-page .page-content {
+        width: 40%;
+        margin-right: 30%;
+    }
+}
+
+/* Contact us page styles */
 .contact-us-page .page-content {
-   background-color: rgba(189, 186, 186, 0.7);
+    background-color: rgba(189, 186, 186, 0.7);
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 8px;
+    font-family: 'Gotham', serif;
+}
 
+@media (min-width: 768px) {
+    .contact-us-page .page-content {
+        width: 60%;
+        padding: 2rem;
+        margin-left: 20%;
+    }
+}
 
-    /* Position the text content to the left side */
-  width:40%; /* Adjust this percentage as needed */
-  text-align: left; /* Ensure text is left-aligned */
-  margin-left: 30%; 
-  
-  padding: 2rem; /* Add some padding for spacing inside the container */
-  border-radius: 8px; /* Optional: adds rounded corners */ 
-  font-family: 'Gotham', serif;
-  text-align: center;
+@media (min-width: 1024px) {
+    .contact-us-page .page-content {
+        width: 40%;
+        margin-left: 30%;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .page-content {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .scrollable-container {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Ensure text readability on smaller screens */
+@media (max-width: 480px) {
+    .page-content h1 {
+        font-size: 1.75em;
+    }
+    
+    .page-content h2 {
+        font-size: 1.5em;
+    }
+    
+    .page-content p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .page-wrapper {
+        height: -webkit-fill-available;
+    }
+    
+    .welcome-page {
+        height: -webkit-fill-available;
+    }
 }
 
 

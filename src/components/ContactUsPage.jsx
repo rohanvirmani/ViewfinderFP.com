@@ -44,9 +44,9 @@ export default function ContactUsPage() {
    <div className="page-wrapper contact-us-page"
          style={{ backgroundImage: 'url(/images/Dilani-7.jpg)' }}>
       <div className="background-blur-overlay"></div>
-      <div className="page-content contact-us-page">
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+      <div className="page-content contact-us-page px-4 md:px-8 max-w-2xl mx-auto">
+        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+          <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
             <div className="flex-1">
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-800 mb-1">First Name</label>
               <input
@@ -113,7 +113,7 @@ export default function ContactUsPage() {
           
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white font-bold py-3 rounded-md hover:bg-blue-600 transition duration-300"
+            className="w-full md:w-auto px-6 bg-blue-500 text-white font-bold py-3 rounded-md hover:bg-blue-600 transition duration-300"
           >
             Send Message
           </button>

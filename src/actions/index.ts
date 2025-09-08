@@ -1,13 +1,11 @@
+// src/actions/index.ts
 import { ActionError, defineAction } from 'astro:actions';
 import { z } from 'zod';
 import { Resend } from 'resend';
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
 export const server = {
   send: defineAction({
     accept: 'form',
-    // Define the schema to validate the incoming form data
     input: z.object({
       firstName: z.string().min(1, { message: 'First name is required.' }),
       lastName: z.string().min(1, { message: 'Last name is required.' }),
@@ -15,19 +13,23 @@ export const server = {
       message: z.string().min(1, { message: 'Message cannot be empty.' }),
       subscribe: z.boolean().default(false),
     }),
-    handler: async ({ firstName, lastName, email, message, subscribe }) => {
+    // The `env` parameter is now correctly typed
+    handler: async (data, env) => { 
+      // Correctly access env from the context object
+      const resend = new Resend(env.RESEND_API_KEY);
+
       try {
-        const { data, error } = await resend.emails.send({
+        const { data: resendData, error } = await resend.emails.send({
           from: 'info@viewfinderfp.com',
-          to: ['dilani@viewfinderfp.com'], // Replace with your receiving email address
-          subject: `New Contact from ${firstName} ${lastName}`,
+          to: ['dilani@viewfinderfp.com'],
+          subject: `New Contact from ${data.firstName} ${data.lastName}`,
           html: `
             <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
+            <p><strong>Email:</strong> ${data.email}</p>
             <p><strong>Message:</strong></p>
-            <p>${message}</p>
-            <p><strong>Newsletter Subscription:</strong> ${subscribe ? 'Yes' : 'No'}</p>
+            <p>${data.message}</p>
+            <p><strong>Newsletter Subscription:</strong> ${data.subscribe ? 'Yes' : 'No'}</p>
           `,
         });
   
@@ -37,7 +39,7 @@ export const server = {
             message: error.message,
           });
         }
-        return data;
+        return resendData;
       } catch (error) {
         console.error('Failed to send email:', error);
         throw new ActionError({
