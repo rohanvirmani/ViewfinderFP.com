@@ -18,7 +18,7 @@ export default function ProjectsPage() {
     style={{ backgroundImage: 'url(/images/CCA_BTS.jpg)' }}>
   <div className="background-blur-overlay"></div>
   <div className="page-content projects-page">
-      <h2 class="text-2xl font-bold text-black">Our Film Projects</h2>
+      <h2 class="text-2xl font-bold text-white">Our Film Projects</h2>
       <div className="project-image-container gap-[60px]"> {/* New container */}
           {filmProjects.map((project) => (
              <a key={project.id} href={`/${project.slug}`} className="relative overflow-hidden group block">

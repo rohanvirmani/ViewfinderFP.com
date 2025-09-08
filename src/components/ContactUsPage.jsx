@@ -19,10 +19,25 @@ export default function ContactUsPage() {
       [name]: type === 'checkbox' ? checked : value,
     }));
   };
-    const handleSubmit = (e) => {
-    actions.send(formState.firstName,formState.lastName,formState.email,formState.message,formState.subscribe)
-    console.log('Form submitted:', formState);
-    alert('Form submitted successfully! (Check the console for data)');
+    const handleSubmit = async (e) => {{
+  e.preventDefault(); // This is good, keep it to prevent a full page reload
+
+  // Create a FormData object from the form element
+  const formData = new FormData(e.target);
+
+  try {
+    // Send the formData object to the Astro action
+    const result = await actions.send(formData);
+
+    // Handle the result (e.g., show a success message)
+    console.log('Action result:', result);
+    alert('Form submitted successfully!');
+  } catch (error) {
+    // Handle errors (e.g., show an error message)
+    console.error('Submission failed:', error);
+    alert('Submission failed. Please try again.');
+  }
+};
   };
 
   return (

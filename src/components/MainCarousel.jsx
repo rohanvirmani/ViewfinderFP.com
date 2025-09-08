@@ -46,7 +46,10 @@ export default function MainCarousel() {
         loop={true} // Infinite loop
         className="main-swiper-container" // Custom class for styling
         style={{ height: '100vh', width: '100vw' }} // Direct style for full viewport
-        hashNavigation // Enable hash navigation
+          hashNavigation={{
+    watchState: true, // Enable watching window location hash
+    replaceState: true // Replace window history instead of adding new entries
+  }}
       >
         <SwiperSlide data-hash="home-page">
           <WelcomePage />
