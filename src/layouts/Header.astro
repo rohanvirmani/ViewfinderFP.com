@@ -1,7 +1,6 @@
 ---
-// Add a boolean to track mobile menu state
 ---
-<header class="bg-[#c2b1d2] p-4 md:px-8 fixed top-0 right-0 w-full z-50 flex justify-between items-center">
+<header class="bg-[#c2b1d2] p-4 md:px-8 fixed top-0 right-0 w-full z-[100] flex justify-between items-center">
   <img 
     src="/images/VFP Monogram - Black.png" 
     alt="Company Logo" 
@@ -11,16 +10,18 @@
   <!-- Mobile menu button -->
   <button 
     id="mobile-menu-button" 
-    class="md:hidden p-2 text-[#0f0000] hover:text-gray-300"
+    class="md:hidden p-2 text-[#0f0000] hover:text-gray-300 z-[101] cursor-pointer touch-manipulation"
     aria-label="Toggle menu"
+    type="button"
+    style="touch-action: manipulation;"
   >
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
   </button>
 
   <!-- Navigation menu -->
-  <nav id="nav-menu" class="fixed md:relative top-[72px] md:top-0 right-0 w-full md:w-auto bg-[#c2b1d2] md:bg-transparent transform translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:transition-none">
+  <nav id="nav-menu" class="fixed md:relative top-[72px] md:top-0 right-0 w-full md:w-auto bg-[#c2b1d2] md:bg-transparent transform translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:transition-none z-[99]">
     <div class="flex flex-col md:flex-row justify-end gap-4 md:gap-8 items-center p-4 md:p-0">
       <a href="/#home-page" data-target="home-page" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 w-full md:w-auto text-center py-2 md:py-0">Home</a>
       <a href="/#about-us-page" data-target="about-us-page" class="nav-link text-[#0f0000] no-underline text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 w-full md:w-auto text-center py-2 md:py-0">About Us</a>
@@ -30,72 +31,92 @@
   </nav>
 </header>
 
-<script>
-  // Mobile menu functionality
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const navMenu = document.getElementById('nav-menu');
-  let isMenuOpen = false;
+<script is:inline>
+  // Initialize the mobile menu functionality immediately
+  function initMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const navMenu = document.getElementById('nav-menu');
+    let isMenuOpen = false;
 
-  if (mobileMenuButton && navMenu) {
-    mobileMenuButton.addEventListener('click', () => {
+    if (!mobileMenuButton || !navMenu) return;
+
+    function toggleMenu(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      
       isMenuOpen = !isMenuOpen;
       navMenu.style.transform = isMenuOpen ? 'translateX(0)' : 'translateX(100%)';
+      mobileMenuButton.setAttribute('aria-expanded', isMenuOpen.toString());
+    }
+
+    // Add both click and touchstart events for better mobile response
+    const handleInteraction = (event) => {
+      event.preventDefault();
+      toggleMenu(event);
+    };
+
+    mobileMenuButton.addEventListener('click', handleInteraction, { passive: false });
+    mobileMenuButton.addEventListener('touchstart', handleInteraction, { passive: false });
+
+    // Close menu when clicking navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          isMenuOpen = false;
+          navMenu.style.transform = 'translateX(100%)';
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (isMenuOpen && 
+          target instanceof Node && 
+          !navMenu.contains(target) && 
+          !mobileMenuButton.contains(target)) {
+        toggleMenu();
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        navMenu.style.transform = 'translateX(0)';
+        isMenuOpen = false;
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+      } else if (!isMenuOpen) {
+        navMenu.style.transform = 'translateX(100%)';
+      }
     });
   }
 
-  // A robust script to wait for the Swiper instance
-  const swiperEl = document.getElementById('main-swiper');
-  const navLinks = document.querySelectorAll('[data-target]');
-  
-  if (swiperEl) {
-    const checkSwiper = () => {
-      const swiperInstance = (swiperEl as any).swiper;
-      
-      if (swiperInstance) {
-        navLinks.forEach(link => {
-          link.addEventListener('click', (event) => {
-            event.preventDefault(); 
-            const targetHash = link.getAttribute('data-target');
-            
-            // Close mobile menu when a link is clicked
-            if (window.innerWidth < 768) {
-              isMenuOpen = false;
-              navMenu.style.transform = 'translateX(100%)';
-            }
+  // Initialize immediately
+  window.addEventListener('load', initMobileMenu);
+  // Also initialize when DOM is fully loaded (backup)
+  document.addEventListener('DOMContentLoaded', initMobileMenu);
+</script>
 
-            let slideIndex = -1;
-            swiperInstance.slides.forEach((slide: { dataset: { hash: string | null; }; }, index: number) => {
-              if (slide.dataset.hash === targetHash) {
-                slideIndex = index;
-              }
-            });
-
-            if (slideIndex !== -1) {
-              swiperInstance.slideTo(slideIndex);
-            }
-          });
-        });
-      } else {
-        setTimeout(checkSwiper, 50);
-      }
-    };
-    
-    checkSwiper();
+<style>
+  /* Prevent text selection on button */
+  #mobile-menu-button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
   }
 
-  // Close menu when clicking outside
-  document.addEventListener('click', (event) => {
-    if (isMenuOpen && navMenu && !navMenu.contains(event.target as Node) && !mobileMenuButton.contains(event.target as Node)) {
-      isMenuOpen = false;
-      navMenu.style.transform = 'translateX(100%)';
+  /* Ensure proper touch target size */
+  @media (max-width: 768px) {
+    #mobile-menu-button {
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-  });
-
-  // Handle resize events
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768 && navMenu) {
-      navMenu.style.transform = 'translateX(0)';
-      isMenuOpen = false;
-    }
-  });
-</script>
+  }
+</style>
