@@ -3,16 +3,6 @@ import { ActionError, defineAction } from 'astro:actions';
 import { z } from 'zod';
 import { Resend } from 'resend';
 
-// Get environment variable
-const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
-
-if (!RESEND_API_KEY) {
-  throw new Error('RESEND_API_KEY environment variable is not set');
-}
-
-// Initialize Resend outside the handler
-const resend = new Resend(RESEND_API_KEY);
-
 export const server = {
   send: defineAction({
     accept: 'form',
@@ -23,7 +13,20 @@ export const server = {
       message: z.string().min(1, { message: 'Message cannot be empty.' }),
       subscribe: z.boolean().default(false),
     }),
-    handler: async (data) => { 
+    handler: async (data, { env }) => { 
+      // Access RESEND_API_KEY from env parameter
+      const RESEND_API_KEY = env?.RESEND_API_KEY;
+
+      if (!RESEND_API_KEY) {
+        throw new ActionError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Missing RESEND_API_KEY configuration',
+        });
+      }
+
+      // Initialize Resend inside the handler with the key from env
+      const resend = new Resend(RESEND_API_KEY);
+
       try {
         const { data: resendData, error } = await resend.emails.send({
           from: 'info@viewfinderfp.com',
