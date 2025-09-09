@@ -23,20 +23,27 @@ routes = [
 name = "viewfinderfp-development"
 workers_dev = true
 
-# Vars and secrets configuration
 [vars]
-# Public variables can go here if needed
+NODE_VERSION = "18"
 
-# Secrets for production
+[build.upload]
+format = "modules"
+main = "./dist/_worker.js"
+dir = "dist"
+
+# Secrets configuration
 [env.production.vars]
-# Production-specific variables (if any)
+ENVIRONMENT = "production"
 
 [[env.production.secrets]]
 name = "RESEND_API_KEY"
 
-# Secrets for development
 [env.development.vars]
-# Development-specific variables (if any)
+ENVIRONMENT = "development"
 
 [[env.development.secrets]]
 name = "RESEND_API_KEY"
+
+# Add D1 database binding if you're using one
+# [d1_databases]
+# DB_NAME = "your_database_binding"

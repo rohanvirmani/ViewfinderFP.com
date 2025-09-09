@@ -13,23 +13,25 @@ export const server = {
       message: z.string().min(1, { message: 'Message cannot be empty.' }),
       subscribe: z.boolean().default(false),
     }),
-    handler: async (data, { env }) => { 
-      // Access RESEND_API_KEY from env parameter
-      const RESEND_API_KEY = env?.RESEND_API_KEY;
-
-      if (!RESEND_API_KEY) {
-        throw new ActionError({
-          code: 'INTERNAL_SERVER_ERROR',
-          message: 'Missing RESEND_API_KEY configuration',
-        });
-      }
-
-      // Initialize Resend inside the handler with the key from env
-      const resend = new Resend(RESEND_API_KEY);
-
+    handler: async (data, { request }) => { 
       try {
+        // Access the RESEND_API_KEY from the runtime environment
+        // @ts-ignore - Cloudflare Workers types
+        const env = request.cf?.env || {};
+        const RESEND_API_KEY = env.RESEND_API_KEY;
+
+        if (!RESEND_API_KEY) {
+          console.error('RESEND_API_KEY not found in environment');
+          throw new ActionError({
+            code: 'INTERNAL_SERVER_ERROR',
+            message: 'Email service configuration error',
+          });
+        }
+
+        const resend = new Resend(RESEND_API_KEY);
+
         const { data: resendData, error } = await resend.emails.send({
-          from: 'info@viewfinderfp.com',
+          from: 'Viewfinder Film Productions <info@viewfinderfp.com>',
           to: ['dilani@viewfinderfp.com'],
           subject: `New Contact from ${data.firstName} ${data.lastName}`,
           html: `
@@ -40,15 +42,21 @@ export const server = {
             <p>${data.message}</p>
             <p><strong>Newsletter Subscription:</strong> ${data.subscribe ? 'Yes' : 'No'}</p>
           `,
+          replyTo: data.email,
         });
   
         if (error) {
+          console.error('Resend API error:', error);
           throw new ActionError({
             code: 'BAD_REQUEST',
             message: error.message,
           });
         }
-        return resendData;
+
+        return {
+          success: true,
+          data: resendData,
+        };
       } catch (error) {
         console.error('Failed to send email:', error);
         throw new ActionError({

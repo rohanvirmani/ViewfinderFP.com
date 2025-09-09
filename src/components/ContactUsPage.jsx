@@ -19,26 +19,31 @@ export default function ContactUsPage() {
       [name]: type === 'checkbox' ? checked : value,
     }));
   };
-    const handleSubmit = async (e) => {{
-  e.preventDefault(); // This is good, keep it to prevent a full page reload
-
-  // Create a FormData object from the form element
-  const formData = new FormData(e.target);
-
+    const handleSubmit = async (e) => {
+  e.preventDefault();
+  
   try {
-    // Send the formData object to the Astro action
+    const formData = new FormData(e.target);
     const result = await actions.send(formData);
 
-    // Handle the result (e.g., show a success message)
-    console.log('Action result:', result);
-    alert('Form submitted successfully!');
+    if (result.success) {
+      alert('Message sent successfully!');
+      // Reset form
+      setFormState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        message: '',
+        subscribe: false,
+      });
+    } else {
+      throw new Error(result.error || 'Failed to send message');
+    }
   } catch (error) {
-    // Handle errors (e.g., show an error message)
-    console.error('Submission failed:', error);
-    alert('Submission failed. Please try again.');
+    console.error('Submission error:', error);
+    alert(error.message || 'Failed to send message. Please try again.');
   }
 };
-  };
 
   return (
    <div className="page-wrapper contact-us-page"

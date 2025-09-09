@@ -8,7 +8,12 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
-// Add Cloudflare Worker Env type
-type Env = {
-  RESEND_API_KEY: string;
-};
+declare namespace App {
+  interface Locals {
+    runtime: {
+      env: {
+        RESEND_API_KEY: string;
+      };
+    };
+  }
+}
