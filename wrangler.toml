@@ -1,0 +1,42 @@
+name = "viewfinderfp"
+compatibility_date = "2023-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Base configuration
+[site]
+bucket = "./dist"
+
+[build]
+command = "npm run build"
+upload.format = "service-worker"
+
+# Production environment
+[env.production]
+name = "viewfinderfp-production"
+workers_dev = true
+routes = [
+    { pattern = "viewfinderfp.com/*", zone_name = "viewfinderfp.com" }
+]
+
+# Development environment
+[env.development]
+name = "viewfinderfp-development"
+workers_dev = true
+
+# Vars and secrets configuration
+[vars]
+# Public variables can go here if needed
+
+# Secrets for production
+[env.production.vars]
+# Production-specific variables (if any)
+
+[[env.production.secrets]]
+name = "RESEND_API_KEY"
+
+# Secrets for development
+[env.development.vars]
+# Development-specific variables (if any)
+
+[[env.development.secrets]]
+name = "RESEND_API_KEY"
