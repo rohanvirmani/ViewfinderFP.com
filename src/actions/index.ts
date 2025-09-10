@@ -1,7 +1,10 @@
+
+
 // src/actions/index.ts
 import { ActionError, defineAction } from 'astro:actions';
 import { z } from 'zod';
 import { Resend } from 'resend';
+import { RESEND_API_KEY } from "astro:env/server";
 
 export const server = {
   send: defineAction({
@@ -13,12 +16,19 @@ export const server = {
       message: z.string().min(1, { message: 'Message cannot be empty.' }),
       subscribe: z.boolean().default(false),
     }),
-    handler: async (data, { request }) => { 
+    handler: async (data, context) => { 
       try {
-        // Access the RESEND_API_KEY from the runtime environment
-        // @ts-ignore - Cloudflare Workers types
-        const env = request.cf?.env || {};
-        const RESEND_API_KEY = env.RESEND_API_KEY;
+        // Access environment variables through context.locals.runtime.env
+        //const { env } = context.locals.runtime;
+        //const RESEND_API_KEY = env.RESEND_API_KEY;
+
+        // Debug logging (remove in production)
+        // console.log('Environment check:', {
+        //   hasLocals: !!context.locals,
+        //   hasRuntime: !!context.locals?.runtime,
+        //   hasEnv: !!context.locals?.runtime?.env,
+        //   hasKey: !!RESEND_API_KEY,
+        // });
 
         if (!RESEND_API_KEY) {
           console.error('RESEND_API_KEY not found in environment');

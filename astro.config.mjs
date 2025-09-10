@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 import react from '@astrojs/react';
 
@@ -8,7 +8,6 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
-  output: 'server',
   adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()], 
@@ -16,6 +15,11 @@ export default defineConfig({
       rollupOptions: {
         external: ['node:async_hooks']
       }
+    }
+  },
+  env: {
+    schema: {
+      RESEND_API_KEY: envField.string({context:"server", access:"secret"})
     }
   }
 });

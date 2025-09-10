@@ -25,8 +25,7 @@ export default function ContactUsPage() {
   try {
     const formData = new FormData(e.target);
     const result = await actions.send(formData);
-
-    if (result.success) {
+   
       alert('Message sent successfully!');
       // Reset form
       setFormState({
@@ -36,9 +35,7 @@ export default function ContactUsPage() {
         message: '',
         subscribe: false,
       });
-    } else {
-      throw new Error(result.error || 'Failed to send message');
-    }
+  
   } catch (error) {
     console.error('Submission error:', error);
     alert(error.message || 'Failed to send message. Please try again.');
