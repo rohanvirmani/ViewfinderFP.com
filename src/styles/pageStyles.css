@@ -191,28 +191,89 @@
 
 /* About us page styles */
 .about-us-page .page-content {
-    background-color: rgba(189, 186, 186, 0.7);
-    width: 90%;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 8px;
-    font-family: 'Gotham', serif;
-    text-align: left;
+  background-color: rgba(189, 186, 186, 0.7);
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-family: 'Gotham', serif;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Custom scrollbar styling */
+.about-us-page .page-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.about-us-page .page-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.about-us-page .page-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+/* Mobile-first text styling */
+.about-us-page .page-content p {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  text-shadow: none;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Tablet and desktop text styling */
 @media (min-width: 768px) {
-    .about-us-page .page-content {
-        width: 60%;
-        padding: 2rem;
-        margin-right: 20%;
-    }
+  .about-us-page .page-content {
+    padding: 2rem;
+    max-height: calc(100vh - 130px);
+  }
+
+  .about-us-page .page-content p {
+    font-size: 1rem; /* 16px */
+    line-height: 1.75;
+  }
 }
 
+/* Large desktop text styling */
 @media (min-width: 1024px) {
-    .about-us-page .page-content {
-        width: 40%;
-        margin-right: 30%;
-    }
+  .about-us-page .page-content p {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.8;
+  }
+}
+
+/* Handle very small screens */
+@media (max-width: 360px) {
+  .about-us-page .page-content {
+    padding: 1rem;
+  }
+
+  .about-us-page .page-content p {
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.5;
+  }
+}
+
+/* Prevent text overflow on narrow screens */
+.about-us-page .page-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin-top: 130px;
+}
+
+/* Improve touch scrolling */
+@media (hover: none) {
+  .about-us-page .page-content {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
 }
 
 /* Contact us page styles */

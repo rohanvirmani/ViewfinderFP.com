@@ -1,0 +1,202 @@
+---
+---
+
+<header class="bg-[#c2b1d2] p-4 fixed top-0 right-0 w-full z-[100] flex justify-between items-center">
+  <img 
+    src="/images/VFP Monogram - Black.png" 
+    alt="Company Logo" 
+    class="h-auto w-[100px] object-contain ml-4" 
+  />
+  
+  <button 
+    id="mobile-menu-button" 
+    class="p-3 text-[#0f0000] hover:text-gray-300 z-[101] bg-[#c2b1d2] rounded-md"
+    aria-label="Toggle menu"
+    type="button"
+  >
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</header>
+
+<!-- Mobile Menu Page -->
+<div id="mobile-menu-page" class="fixed inset-0 bg-[#c2b1d2] z-[1000] transform translate-y-[-100%] transition-transform duration-300">
+  <div class="flex flex-col h-full">
+    <!-- Header with close button -->
+    <div class="flex justify-between items-center p-4 border-b border-[#0f0000]/10">
+      <button 
+        id="close-menu-button"
+        class="p-3 text-[#0f0000] hover:text-gray-300 rounded-md"
+        aria-label="Close menu"
+      >
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <img 
+        src="/images/VFP Monogram - Black.png" 
+        alt="Company Logo" 
+        class="h-auto w-[100px] object-contain" 
+      />
+      <div class="w-[56px]"></div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex-1 flex flex-col justify-center items-center px-6 py-12 space-y-8">
+      <a 
+        href="/#home-page" 
+        data-target="home-page" 
+        class="mobile-nav-link text-[#0f0000] no-underline text-2xl font-medium w-full text-center relative group"
+      >
+        <span class="relative inline-block pb-2">
+          Home
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f0000] transition-all duration-300 group-hover:w-full"></span>
+        </span>
+      </a>
+      <a 
+        href="/#about-us-page" 
+        data-target="about-us-page" 
+        class="mobile-nav-link text-[#0f0000] no-underline text-2xl font-medium w-full text-center relative group"
+      >
+        <span class="relative inline-block pb-2">
+          About Us
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f0000] transition-all duration-300 group-hover:w-full"></span>
+        </span>
+      </a>
+      <a 
+        href="/#projects-page" 
+        data-target="projects-page" 
+        class="mobile-nav-link text-[#0f0000] no-underline text-2xl font-medium w-full text-center relative group"
+      >
+        <span class="relative inline-block pb-2">
+          Film Projects
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f0000] transition-all duration-300 group-hover:w-full"></span>
+        </span>
+      </a>
+      <a 
+        href="/#contact-us-page" 
+        data-target="contact-us-page" 
+        class="mobile-nav-link text-[#0f0000] no-underline text-2xl font-medium w-full text-center relative group"
+      >
+        <span class="relative inline-block pb-2">
+          Contact Us
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f0000] transition-all duration-300 group-hover:w-full"></span>
+        </span>
+      </a>
+    </nav>
+  </div>
+</div>
+
+<script>
+  // Make sure the script runs after the component is mounted
+  function initMobileMenu() {
+    const menuButton = document.querySelector('#mobile-menu-button');
+    const closeButton = document.querySelector('#close-menu-button');
+    const menuPage = document.querySelector('#mobile-menu-page');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    // Debug logging
+    console.log('Menu elements:', {
+      menuButton: !!menuButton,
+      closeButton: !!closeButton,
+      menuPage: !!menuPage,
+      navLinksCount: navLinks.length
+    });
+
+    if (!menuButton || !menuPage || !closeButton) {
+      console.error("Mobile menu elements not found.");
+      return;
+    }
+
+    function openMenu() {
+      console.log('Opening menu');
+      menuPage.style.transform = 'translateY(0)';
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+      console.log('Closing menu');
+      menuPage.style.transform = 'translateY(-100%)';
+      document.body.classList.remove('menu-open');
+    }
+
+    // Use onclick instead of addEventListener for better compatibility
+    menuButton.onclick = (e) => {
+      e.preventDefault();
+      openMenu();
+    };
+
+    closeButton.onclick = (e) => {
+      e.preventDefault();
+      closeMenu();
+    };
+
+    navLinks.forEach(link => {
+      link.onclick = () => {
+        closeMenu();
+      };
+    });
+
+    // Touch events
+    let touchStartY = 0;
+    
+    menuPage.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    menuPage.addEventListener('touchmove', (e) => {
+      const touchEndY = e.touches[0].clientY;
+      const diff = touchEndY - touchStartY;
+      
+      if (diff > 50) { 
+        closeMenu();
+      }
+    }, { passive: true });
+  }
+
+  // Run initialization immediately if document is ready
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initMobileMenu();
+  } else {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  }
+</script>
+
+<style>
+  #mobile-menu-page {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-nav-link {
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-nav-link:active {
+    transform: scale(0.98);
+  }
+
+  #mobile-menu-button,
+  #close-menu-button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  #mobile-menu-button:active,
+  #close-menu-button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  @media (hover: hover) {
+    .mobile-nav-link:hover span span {
+      width: 100%;
+    }
+  }
+
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+</style>
