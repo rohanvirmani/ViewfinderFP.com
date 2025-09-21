@@ -12,14 +12,36 @@ export default function AboutUsPage() {
           About Us
         </h1>
         
-        <div className="space-y-4 md:space-y-6 text-sm md:text-base lg:text-lg">
+        {/* Mobile version */}
+        <div className="space-y-4 block md:hidden text-sm">
           <p className="leading-relaxed">
             Viewfinder Film Productions (VFP) Inc. is a Toronto-based marketing and production company 
-            dedicated to the international promotion of creators—particularly those of South Asian descent—wherever 
-            they are in the world. Founded in 2016 by producer and consultant Dilani Rabindran 
-            (formerly operating as Viewfinder Film Consulting), VFP has creatively consulted on and 
-            represented over 45 films, securing 120+ official festival selections, multiple Indian 
-            National Awards, and global streaming placements on platforms such as Netflix and Amazon Prime.
+            championing diverse creators, especially those of South Asian descent, on the world stage. 
+            Founded in 2016 by producer and consultant <b>Dilani Rabindran</b>, VFP has represented 
+            over 45 films and secured 120+ official festival selections.
+          </p>
+
+          <p className="leading-relaxed">
+            As a producer, VFP's four short films—Theetu (Untouchability), Small Wishes, Dinner Party, 
+            and Little Wings—have earned international acclaim, winning numerous "Best Short" prizes, 
+            five Critics Choice Award nominations, and the 71st Indian National Award for Best 
+            Cinematography (Non-Feature, for Little Wings).
+          </p>
+
+          <p className="leading-relaxed">
+            VFP is now working to develop more compelling, globally resonant films.
+          </p>
+        </div>
+
+        {/* Desktop version */}
+        <div className="space-y-4 md:space-y-6 hidden md:block md:text-base lg:text-lg">
+          <p className="leading-relaxed">
+            Viewfinder Film Productions (VFP) Inc. is a Toronto-based marketing and production company
+            dedicated to the international promotion of creators—particularly those of South Asian 
+            descent—wherever they are in the world. Founded in 2016 by producer and consultant 
+            <b> Dilani Rabindran</b> (formerly operating as Viewfinder Film Consulting), VFP has creatively 
+            consulted on and represented over 45 films, securing 120+ official festival selections 
+            for films from around the world.
           </p>
 
           <p className="leading-relaxed">

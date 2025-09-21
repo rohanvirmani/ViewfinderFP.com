@@ -17,11 +17,11 @@ export default function ProjectsPage() {
                className="w-full block relative">
               <div className="relative w-full">
                 {/* Aspect ratio container */}
-                <div className="w-full relative pb-[56.25%]">
+                <div className="w-full relative basis-2/3 pb-[56.25%]">
                   <img 
                     src={project.images[0]} 
                     alt={project.title} 
-                    className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 scale-[0.8]"
                     loading="lazy"
                   />
                   {/* Overlay */}

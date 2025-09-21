@@ -1,95 +1,75 @@
----
-import DesktopHeader from './DesktopHeader.astro';
-import MobileHeader from './MobileHeader.astro';
----
-
-<div id="desktop-header">
-  <DesktopHeader />
-</div>
-
-<div id="mobile-header">
-  <MobileHeader />
-</div>
-
-<script is:inline>
-  // Move JavaScript to client-side only
-  function isMobileDevice() {
-    return window.innerWidth < 768 || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  }
-
-  function updateHeaderVisibility() {
-    const desktopHeader = document.getElementById('desktop-header');
-    const mobileHeader = document.getElementById('mobile-header');
-    
-    if (!desktopHeader || !mobileHeader) {
-      console.warn('Header elements not found. Desktop:', !!desktopHeader, 'Mobile:', !!mobileHeader);
-      return;
-    }
-
-    const isMobile = isMobileDevice();
-    
-    try {
-      desktopHeader.style.display = isMobile ? 'none' : 'block';
-      mobileHeader.style.display = isMobile ? 'block' : 'none';
-    } catch (error) {
-      console.error('Error updating header visibility:', error);
-    }
-  }
-
-  // Initialize after DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateHeaderVisibility);
-  } else {
-    updateHeaderVisibility();
-  }
-
-  // Handle resize events with debouncing
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(updateHeaderVisibility, 250);
-  });
-</script>
+<header class="bg-[#c2b1d2] p-2 sm:p-4 fixed top-0 right-0 w-full z-[100] flex justify-between items-center">
+  <!-- Logo container with responsive margins and width -->
+  <div class="flex items-center">
+    <img 
+      src="/images/VFP Monogram - Black.png" 
+      alt="Company Logo" 
+      class="h-auto w-[80px] sm:w-[100px] md:w-[120px] lg:w-[130px] object-contain ml-1 sm:ml-4 md:ml-6 lg:ml-[40px]" 
+    />
+  </div>
+  
+  <!-- Navigation with compressed mobile layout -->
+  <nav class="flex justify-end items-center">
+    <div class="flex flex-nowrap gap-1.5 xs:gap-2 sm:gap-4 md:gap-6 lg:gap-8 mr-1 sm:mr-4 md:mr-6 lg:mr-8">
+      <a 
+        href="/#home-page" 
+        data-target="home-page" 
+        class="nav-link text-[#0f0000] no-underline text-xs xs:text-sm sm:text-base md:text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 whitespace-nowrap px-1 sm:px-2"
+      >
+        Home
+      </a>
+      <a 
+        href="/#about-us-page" 
+        data-target="about-us-page" 
+        class="nav-link text-[#0f0000] no-underline text-xs xs:text-sm sm:text-base md:text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 whitespace-nowrap px-1 sm:px-2"
+      >
+        About
+      </a>
+      <a 
+        href="/#projects-page" 
+        data-target="projects-page" 
+        class="nav-link text-[#0f0000] no-underline text-xs xs:text-sm sm:text-base md:text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 whitespace-nowrap px-1 sm:px-2"
+      >
+        Projects
+      </a>
+      <a 
+        href="/#contact-us-page" 
+        data-target="contact-us-page" 
+        class="nav-link text-[#0f0000] no-underline text-xs xs:text-sm sm:text-base md:text-lg font-medium transition-colors duration-300 ease-in-out hover:text-gray-300 whitespace-nowrap px-1 sm:px-2"
+      >
+        Contact
+      </a>
+    </div>
+  </nav>
+</header>
 
 <style>
-  /* Mobile menu page styles */
-  #mobile-menu-page {
-    -webkit-overflow-scrolling: touch;
+  /* Ensure smooth transitions for responsive changes */
+  header {
+    transition: all 0.3s ease;
   }
 
-  .mobile-nav-link {
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 0.2s ease;
+  /* Prevent text from wrapping awkwardly */
+  .nav-link {
+    white-space: nowrap;
+    transition: all 0.3s ease;
   }
 
-  .mobile-nav-link:active {
-    transform: scale(0.98);
-  }
-
-  /* Touch event handling */
-  #mobile-menu-button,
-  #close-menu-button {
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-  }
-
-  /* Active states for buttons */
-  #mobile-menu-button:active,
-  #close-menu-button:active {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  /* Link animations */
+  /* Optional: Add hover effect for better touch feedback */
   @media (hover: hover) {
-    .mobile-nav-link:hover span span {
-      width: 100%;
+    .nav-link:hover {
+      transform: translateY(-1px);
     }
   }
 
-  /* Prevent scrolling when menu is open */
-  body.menu-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
+  /* Optional: Add active state for touch devices */
+  .nav-link:active {
+    transform: translateY(1px);
+  }
+
+  /* Add xs breakpoint if not already in your Tailwind config */
+  @media (min-width: 480px) {
+    .xs\:text-l { font-size: 0.875rem; }
+    .xs\:gap-2 { gap: 0.5rem; }
   }
 </style>

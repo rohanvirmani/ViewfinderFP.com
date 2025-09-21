@@ -9,6 +9,7 @@
       "/images/Small-wishes-2.png",
       "/images/Small-wishes-3.png"
     ],
+    "language": "Tamil",
     "director": "Jane Doe",
     "producers": "John Smith",
     "writer": "Alice Brown",
@@ -19,6 +20,7 @@
     "budget": "$50 Million",
     "productionCompany": "Viewfinder Films",
     "cinematographer": "Chris Blue",
+    "productionCountry": "India",
     "editor": "Sarah Yellow",
     "music": "David Purple",
     "artDirector": "Laura Orange",
@@ -46,6 +48,7 @@
       "https://via.placeholder.com/600x400/FF0000/FFFFFF?text=Film+B+Image+3"
     ],
       "director": "Jane Doe",
+      "language": "Tamil",
     "producers": "John Smith",
     "writer": "Alice Brown",
     "starring": "Michael Black",
@@ -54,6 +57,7 @@
     "genre": "Sci-Fi, Adventure",
     "budget": "$50 Million",
     "productionCompany": "Viewfinder Films",
+    "productionCountry": "India",
     "cinematographer": "Chris Blue",
     "editor": "Sarah Yellow",
     "music": "David Purple",
@@ -71,5 +75,43 @@
       "Toronto International Film Festival"
     ],
     "filmlink": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  },
+  {
+    "slug": "theetu",
+    "title": "Theetu (Untouchability)",
+    "about": "One does not forget their caste, even when buying carrots.",
+    "images": [
+      "/images/Theetu/THUMBNAIL.png",
+      "/images/Theetu/2.png",
+      "/images/Theetu/3.png",
+      "/images/Theetu/4.png",
+      "/images/Theetu/5.png",
+      "/images/Theetu/6.png"
+    ],
+    "director": "Haresh Narayanan",
+    "associateDirector": "Balaji Jayaraman",
+    "language": "Tamil",
+    "producers": "Dilani Rabindran",
+    "writer": "Alice Brown",
+    "starring": "Michael Black",
+    "releaseDate": "October 26, 2024",
+    "runningTime": "6:40 minutes",
+    "genre": "Sci-Fi, Adventure",
+    "budget": "$50 Million",
+    "productionCompany": "Viewfinder Films",
+    "productionCountry": "India",
+    "cinematographer": "Sundar Narayanan",
+    "editor": "Sarah Yellow",
+    "music": "Srikant Krishna",
+    "artDirector": "Laura Orange",
+    "soundDesigner": "Tom Gray",
+    "cast": "Agathiyan, Gopalakrishnan, Suruki, Rajasekar, Vijaishri",
+    "dialogue": "A mix of witty and dramatic lines that enhance the storytelling.",
+    "certification": "PG-13",
+    "festivals": [
+      "Sundance Film Festival",
+      "Toronto International Film Festival"
+    ],
+    "filmlink": "https://www.youtube.com/embed/SIxgAcpmbWY?si=cTTUaWrGhXjIBX5o"
   }
 ]
