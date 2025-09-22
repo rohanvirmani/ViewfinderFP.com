@@ -47,6 +47,7 @@ export default function ContactUsPage() {
          style={{ backgroundImage: 'url(/images/Dilani-7.jpg)' }}>
       <div className="background-blur-overlay"></div>
       <div className="page-content contact-us-page px-4 md:px-8 max-w-2xl mx-auto">
+        <br/><br/><br/>
         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
           <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
             <div className="flex-1">
@@ -73,7 +74,7 @@ export default function ContactUsPage() {
                 className="w-full px-4 py-2 rounded-md bg-white bg-opacity-80 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-          </div>
+          </div><br/>
           
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-1">Email</label>
@@ -86,7 +87,7 @@ export default function ContactUsPage() {
               required
               className="w-full px-4 py-2 rounded-md bg-white bg-opacity-80 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-          </div>
+          </div> <br/>
           
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-gray-800 mb-1">Message</label>
@@ -99,7 +100,7 @@ export default function ContactUsPage() {
               required
               className="w-full px-4 py-2 rounded-md bg-white bg-opacity-80 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             ></textarea>
-          </div>
+          </div> <br/>
           
           <div className="flex items-center">
             <input
@@ -119,6 +120,8 @@ export default function ContactUsPage() {
           >
             Send Message
           </button>
+          <br/><br/>
+          <br/>
         </form>
       </div>
     </div>

@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 const { film } = Astro.props;
 ---
 <Layout title={film.title} class="bg-[rgba(212,208,208,0.7)]">
-  <div class="mx-auto py-4 md:py-8 px-4 md:px-50 pt-[95px] md:pt-[130px] bg-[rgba(189, 186, 186, 0.7)] max-h-screen overflow-y-auto transparent-scrollbar">
+  <div class="mx-auto py-4 md:py-8 px-4 md:px-50 pt-[95px] md:pt-[130px] bg-[rgba(189, 186, 186, 0.7)] max-h-screen overflow-y-auto transparent-scrollbar font-roboto">
     <header class="text-center mb-6 md:mb-12">
       <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-black leading-tight tracking-wide text-left">
         {film.title}
@@ -62,6 +62,8 @@ const { film } = Astro.props;
              { film.sfx ? <li><span class="font-semibold">SFX:</span> {film.sfx}</li> : '' }
              { film.productionDesigner ? <li><span class="font-semibold">Production Designer:</span> {film.productionDesigner}</li> : '' }
              { film.studio ? <li><span class="font-semibold">Studio:</span> {film.studio}</li> : '' }
+             { film.makeupHair ? <li><span class="font-semibold">Makeup and Hair:</span> {film.makeupHair}</li> : '' }
+             { film.photographer ? <li><span class="font-semibold">Photographer:</span> {film.photographer}</li> : '' }
           </ul>
         </div>
         <div class="w-full md:w-1/2">
@@ -73,15 +75,19 @@ const { film } = Astro.props;
             { film.soundDesigner ? <li><span class="font-semibold">Sound Designer:</span> {film.soundDesigner}</li> : '' }
             { film.syncrecorder ? <li><span class="font-semibold">Sync Dialogue Recorder:</span> {film.syncrecorder}</li> : '' }
             { film.colorist ? <li><span class="font-semibold">Colorist:</span> {film.colorist}</li> : '' }
+            { film.productionAssistant ? <li><span class="font-semibold">Production Assistant:</span> {film.productionAssistant}</li> : '' }
+            { film.postproductionManager ? <li><span class="font-semibold">Post Production Manager:</span> {film.postproductionManager}</li> : '' }
+            { film.mixing ? <li><span class="font-semibold">Mix & Master:</span> {film.mixing}</li> : '' }
+            { film.recordmixMastering ? <li><span class="font-semibold">Recorded Mixed & Master Studio:</span> {film.recordmixMastering}</li> : '' }
               <li><span class="font-semibold">Cast:</span> {film.cast}</li>
               <li><span class="font-semibold">Dialogue:</span> {film.dialogue}</li>
               <li><span class="font-semibold">Genre:</span> {film.genre}</li>
               <li><span class="font-semibold">Length:</span> {film.runningTime}</li>
               <li><span class="font-semibold">Certification:</span> {film.certification}</li>
               <li><span class="font-semibold">Festivals & Awards:</span>
-                <ul>
+                <ul class="list-disc pl-8">
                   {film.festivals.map((festival) => (
-                    <li  class="font-semibold indent-5">{festival}</li>
+                    <li class="pl-2">{festival}</li>
                   ))}
                 </ul>
               </li>

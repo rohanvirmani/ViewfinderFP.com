@@ -16,10 +16,10 @@ export default function WelcomePage() {
       </video>
       <div className="page-content welcome-page px-4 md:px-8 flex flex-col items-center justify-center min-h-screen">
         <div className="text-center max-w-2xl mx-auto mt-[80px] md:mt-[130px]">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-roboto">
             Viewfinder Film Productions
           </h1>
-          <p className="text-base md:text-lg lg:text-xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl mx-auto font-roboto">
             Viewfinder Film Productions (VFP) Inc. is a marketing & production company dedicated to promoting the work of South Asian creators around the world.
           </p>
         </div>
