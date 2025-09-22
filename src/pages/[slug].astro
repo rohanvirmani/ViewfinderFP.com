@@ -30,19 +30,12 @@ const { film } = Astro.props;
       </h1>
     </header>
 
-    <section class="mb-6 md:mb-12">
-      <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 pb-2 text-black">
-        About
-      </h2>
-      <p class="text-base md:text-lg leading-relaxed text-black">
-        {film.about}
+    <section class="mb-6 md:mb-12 text-black text-base md:text-lg leading-relaxed">
+      <p class="text-base md:text-lg leading-relaxed text-black" set:html={film.about}></p>
       </p>
     </section>
 
     <section class="mb-6 md:mb-12">
-      <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 pb-2 text-black">
-        Images
-      </h2>
       <SwiperCarousel images={film.images} client:load />
     </section>
 
@@ -54,34 +47,53 @@ const { film } = Astro.props;
         <div class="w-full md:w-1/2 mb-6 md:mb-0">
           <ul class="list-disc pl-6 space-y-2 text-base md:text-lg">
             <li><span class="font-semibold">Director:</span> {film.director}</li>
-            {film.associateDirector ? <li><span class="font-semibold">Assoc Director:</span> {film.director}</li> :''}
+            <li><span class="font-semibold">Writer:</span> {film.writer}</li>
+            {film.associateDirector ? <li><span class="font-semibold">Assoc Director:</span> {film.associateDirector}</li> :''}
             <li><span class="font-semibold">Producer:</span> {film.producers}</li>
+            {film.coproducers ? <li><span class="font-semibold">CoProducer:</span> {film.coproducers}</li> :'' }
+            {film.editor ? <li><span class="font-semibold">Editor:</span> {film.editor}</li> :'' }
             <li><span class="font-semibold">Production Company:</span> {film.productionCompany}</li>
             <li><span class="font-semibold">Production Country:</span> {film.productionCountry}</li>
-            <li><span class="font-semibold">Writer:</span> {film.writer}</li>
             <li><span class="font-semibold">Cinematographer:</span> {film.cinematographer}</li>
-            <li><span class="font-semibold">Editor:</span> {film.editor}</li>
              <li><span class="font-semibold">Music:</span> {film.music}</li>
-            <li><span class="font-semibold">Art Director:</span> {film.artDirector}</li>
-             <li><span class="font-semibold">Sound Designers:</span> {film.soundDesigner}</li>
+             {film.artDirector ? <li><span class="font-semibold">Art Director:</span> {film.artDirector}</li> :''}
+             { film.costumeDesigner ? <li><span class="font-semibold">Costumer Designer:</span> {film.costumeDesigner}</li> : '' }
+             { film.singers ? <li><span class="font-semibold">Singers:</span> {film.singers}</li> : '' }
+             { film.sfx ? <li><span class="font-semibold">SFX:</span> {film.sfx}</li> : '' }
+             { film.productionDesigner ? <li><span class="font-semibold">Production Designer:</span> {film.productionDesigner}</li> : '' }
+             { film.studio ? <li><span class="font-semibold">Studio:</span> {film.studio}</li> : '' }
           </ul>
         </div>
         <div class="w-full md:w-1/2">
           <ul class="list-disc pl-6 space-y-2 text-base md:text-lg">
+            { film.cameraUnit ? <li><span class="font-semibold">Camera Unit:</span> {film.cameraUnit}</li> : '' }
+            { film.DI ? <li><span class="font-semibold">DI:</span> {film.DI}</li> : '' }
+            { film.posterDesign ? <li><span class="font-semibold">Poster Design:</span> {film.posterDesign}</li> : '' }
+            { film.releasePartner ? <li><span class="font-semibold">Release Partner:</span> {film.releasePartner}</li> : '' }
+            { film.soundDesigner ? <li><span class="font-semibold">Sound Designer:</span> {film.soundDesigner}</li> : '' }
+            { film.syncrecorder ? <li><span class="font-semibold">Sync Dialogue Recorder:</span> {film.syncrecorder}</li> : '' }
+            { film.colorist ? <li><span class="font-semibold">Colorist:</span> {film.colorist}</li> : '' }
               <li><span class="font-semibold">Cast:</span> {film.cast}</li>
               <li><span class="font-semibold">Dialogue:</span> {film.dialogue}</li>
               <li><span class="font-semibold">Genre:</span> {film.genre}</li>
               <li><span class="font-semibold">Length:</span> {film.runningTime}</li>
               <li><span class="font-semibold">Certification:</span> {film.certification}</li>
-              <li><span class="font-semibold">Festivals & Awards:</span> {film.festivals}</li>
+              <li><span class="font-semibold">Festivals & Awards:</span>
+                <ul>
+                  {film.festivals.map((festival) => (
+                    <li  class="font-semibold indent-5">{festival}</li>
+                  ))}
+                </ul>
+              </li>
+
           </ul>
         </div>
       </div>
     </section>
-
+  { film.filmlink  ?
     <section class="mt-6 md:mt-12">
       <div class="aspect-video w-full max-w-[1280px] mx-auto">
-        <iframe 
+         <iframe 
           class="w-full h-full"
           src={film.filmlink}
           title="YouTube video player"
@@ -91,7 +103,7 @@ const { film } = Astro.props;
           allowfullscreen>
         </iframe>
       </div>
-    </section>
+    </section> : ''}
   </div>
 </Layout>
 <style>
