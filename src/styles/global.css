@@ -5,7 +5,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Hide scrollbars due to full-screen content */
+     /* Hide scrollbars due to full-screen content */
     /* font-family: 'Arial', sans-serif; Example font */
     color: #fff; /* Default text color for dark backgrounds */
   }
