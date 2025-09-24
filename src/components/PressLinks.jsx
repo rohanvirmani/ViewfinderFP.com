@@ -12,7 +12,7 @@ export default function PressLinksPage() {
           Press Links
         </h1>
 
-        <div className="space-y-4 md:space-y-6 hidden md:block md:text-base lg:text-lg">
+        <div className="space-y-4 md:space-y-6  md:text-base lg:text-lg">
         
           <ul class="list-disc pl-8 space-y-2 text-base md:text-lg text-left"> 
          <li>

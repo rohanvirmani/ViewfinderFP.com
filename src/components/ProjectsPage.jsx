@@ -9,7 +9,7 @@ export default function ProjectsPage() {
          style={{ backgroundImage: 'url(/images/CCA_BTS.jpg)' }}>
       <div className="background-blur-overlay"></div>
       <div className="page-content projects-page px-4 md:px-8 w-full md:w-[90%] lg:w-[80%] max-w-[1920px] mt-[95px] md:mt-[130px]"> {/* Added margin-top */}
-        <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Our Film Projects</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Film Projects</h2>
         <div className="project-image-container flex flex-col gap-6 md:gap-8 lg:gap-10 w-full">
           {filmProjects.map((project) => (
             <a key={project.id} 
