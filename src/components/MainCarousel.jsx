@@ -14,6 +14,7 @@ import WelcomePage from './WelcomePage';
 import ProjectsPage from './ProjectsPage'; // This will contain the nested Swiper
 import AboutUsPage from './AboutUsPage';
 import ContactUsPage from './ContactUsPage';
+import Press from './PressLinks';
 
 // You might need some global CSS for full screen or ensure it's loaded in Astro layout
 import '../styles/global.css'; // Example: for HTML/body height 100%
@@ -61,6 +62,9 @@ export default function MainCarousel() {
         </SwiperSlide>
         <SwiperSlide data-hash="contact-us-page">
           <ContactUsPage />
+        </SwiperSlide>
+        <SwiperSlide data-hash="press-page">
+          <Press />
         </SwiperSlide>
       </Swiper></>
   );
