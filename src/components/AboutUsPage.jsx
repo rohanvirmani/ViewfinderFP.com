@@ -13,7 +13,7 @@ export default function AboutUsPage() {
         </h1>
         
         {/* Mobile version */}
-        <div className="space-y-4 block md:hidden text-sm">
+        <div className="space-y-4 block md:hidden text-sm font-bebas">
           <p className="leading-relaxed">
             Viewfinder Film Productions (VFP) Inc. is a Toronto-based marketing and production company 
             championing diverse creators, especially those of South Asian descent, on the world stage. 

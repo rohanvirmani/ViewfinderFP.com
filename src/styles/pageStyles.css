@@ -35,7 +35,7 @@
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    font-family: 'Roboto', serif;
+    /* font-family: 'Roboto', serif; */
     margin-top: 130px;
     background-color: rgba(189, 186, 186, 0.7);
 }

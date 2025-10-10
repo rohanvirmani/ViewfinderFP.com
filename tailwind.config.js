@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // Add a new 'roboto' font family
-        sans: ['Roboto', 'sans-serif'],
+        'bebas': ['"Bebas Neue"', 'sans-serif'],
+        'sans': ['Roboto', 'system-ui', 'sans-serif'], // Update default sans font
       },
     },
   },
