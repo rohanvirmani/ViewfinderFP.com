@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'bebas': ['"Bebas Neue"', 'sans-serif'],
-        'sans': ['Roboto', 'system-ui', 'sans-serif'], // Update default sans font
+        'sans': ['Inter', 'system-ui', 'sans-serif'], // Update default sans font
+        
       },
     },
   },

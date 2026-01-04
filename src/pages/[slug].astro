@@ -47,22 +47,31 @@ const { film } = Astro.props;
         <div class="w-full md:w-1/2 mb-6 md:mb-0">
           <ul class="list-disc pl-6 space-y-2 text-base md:text-lg">
             <li><span class="font-semibold">Director:</span> {film.director}</li>
-            <li><span class="font-semibold">Writer:</span> {film.writer}</li>
-            {film.associateDirector ? <li><span class="font-semibold">Assoc Director:</span> {film.associateDirector}</li> :''}
             <li><span class="font-semibold">Producer:</span> {film.producers}</li>
             {film.coproducers ? <li><span class="font-semibold">CoProducer:</span> {film.coproducers}</li> :'' }
-            {film.editor ? <li><span class="font-semibold">Editor:</span> {film.editor}</li> :'' }
+            <li><span class="font-semibold">Writer:</span> {film.writer}</li>
+             <li><span class="font-semibold">Cast:</span> {film.cast}</li>
+             <li><span class="font-semibold">Cinematographer:</span> {film.cinematographer}</li>
+             <li><span class="font-semibold">Music Director:</span> {film.music}</li>
+             {film.editor ? <li><span class="font-semibold">Editor:</span> {film.editor}</li> :'' }
+            {film.associateDirector ? <li><span class="font-semibold">Asst. Director:</span> {film.associateDirector}</li> :''}
+            {film.lyricist? <li><span class="font-semibold">Lyricist:</span> {film.lyricist}</li> :''}
+             <li><span class="font-semibold">Dialogue:</span> {film.dialogue}</li>
+            { film.costumeDesigner ? <li><span class="font-semibold">Costumer Designer:</span> {film.costumeDesigner}</li> : '' }
+            { film.singers ? <li><span class="font-semibold">Singers:</span> {film.singers}</li> : '' }
+            { film.sfx ? <li><span class="font-semibold">SFX:</span> {film.sfx}</li> : '' }
+            { film.productionDesigner ? <li><span class="font-semibold">Production Designer:</span> {film.productionDesigner}</li> : '' }
+            { film.makeupHair ? <li><span class="font-semibold">Makeup and Hair:</span> {film.makeupHair}</li> : '' }
+
+
+            
             <li><span class="font-semibold">Production Company:</span> {film.productionCompany}</li>
             <li><span class="font-semibold">Production Country:</span> {film.productionCountry}</li>
-            <li><span class="font-semibold">Cinematographer:</span> {film.cinematographer}</li>
-             <li><span class="font-semibold">Music:</span> {film.music}</li>
              {film.artDirector ? <li><span class="font-semibold">Art Director:</span> {film.artDirector}</li> :''}
-             { film.costumeDesigner ? <li><span class="font-semibold">Costumer Designer:</span> {film.costumeDesigner}</li> : '' }
-             { film.singers ? <li><span class="font-semibold">Singers:</span> {film.singers}</li> : '' }
-             { film.sfx ? <li><span class="font-semibold">SFX:</span> {film.sfx}</li> : '' }
-             { film.productionDesigner ? <li><span class="font-semibold">Production Designer:</span> {film.productionDesigner}</li> : '' }
+             
+             
              { film.studio ? <li><span class="font-semibold">Studio:</span> {film.studio}</li> : '' }
-             { film.makeupHair ? <li><span class="font-semibold">Makeup and Hair:</span> {film.makeupHair}</li> : '' }
+             
              { film.photographer ? <li><span class="font-semibold">Photographer:</span> {film.photographer}</li> : '' }
           </ul>
         </div>
@@ -79,8 +88,8 @@ const { film } = Astro.props;
             { film.postproductionManager ? <li><span class="font-semibold">Post Production Manager:</span> {film.postproductionManager}</li> : '' }
             { film.mixing ? <li><span class="font-semibold">Mix & Master:</span> {film.mixing}</li> : '' }
             { film.recordmixMastering ? <li><span class="font-semibold">Recorded Mixed & Master Studio:</span> {film.recordmixMastering}</li> : '' }
-              <li><span class="font-semibold">Cast:</span> {film.cast}</li>
-              <li><span class="font-semibold">Dialogue:</span> {film.dialogue}</li>
+             
+             
               <li><span class="font-semibold">Genre:</span> {film.genre}</li>
               <li><span class="font-semibold">Length:</span> {film.runningTime}</li>
               <li><span class="font-semibold">Certification:</span> {film.certification}</li>
@@ -91,6 +100,7 @@ const { film } = Astro.props;
                   ))}
                 </ul>
               </li>
+              
 
           </ul>
         </div>

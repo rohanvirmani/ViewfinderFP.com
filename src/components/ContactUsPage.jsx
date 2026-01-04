@@ -51,7 +51,7 @@ export default function ContactUsPage() {
         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
           <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
             <div className="flex-1">
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-800 mb-1">First Name</label>
+              <label htmlFor="firstName" className="block text-base md:text-lg font-medium text-gray-800 mb-2">First Name</label>
               <input
                 type="text"
                 id="firstName"
@@ -63,7 +63,7 @@ export default function ContactUsPage() {
               />
             </div>
             <div className="flex-1">
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-800 mb-1">Last Name</label>
+              <label htmlFor="lastName" className="block text-base md:text-lg font-medium text-gray-800 mb-2">Last Name</label>
               <input
                 type="text"
                 id="lastName"
@@ -77,7 +77,7 @@ export default function ContactUsPage() {
           </div><br/>
           
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-1">Email</label>
+            <label htmlFor="email" className="block text-base md:text-lg font-medium text-gray-800 mb-2">Email</label>
             <input
               type="email"
               id="email"
@@ -90,7 +90,7 @@ export default function ContactUsPage() {
           </div> <br/>
           
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-800 mb-1">Message</label>
+            <label htmlFor="message" className="block text-base md:text-lg font-medium text-gray-800 mb-2">Message</label>
             <textarea
               id="message"
               name="message"
@@ -111,12 +111,12 @@ export default function ContactUsPage() {
               onChange={handleChange}
               className="h-4 w-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
             />
-            <label htmlFor="subscribe" className="ml-2 block text-sm text-gray-800">Subscribe to our newsletter</label>
+            <label htmlFor="subscribe" className="ml-2 block text-base md:text-lg font-medium text-gray-800">Subscribe to our newsletter</label>
           </div>
           
           <button
             type="submit"
-            className="w-full md:w-auto px-6 bg-blue-500 text-white font-bold py-3 rounded-md hover:bg-blue-600 transition duration-300"
+            className="w-full md:w-auto px-6 bg-blue-500 text-white font-bold py-3 rounded-md hover:bg-blue-600 transition duration-300 text-base md:text-lg"
           >
             Send Message
           </button>

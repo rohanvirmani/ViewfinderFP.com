@@ -22,14 +22,13 @@ export default function AboutUsPage() {
           </p>
 
           <p className="leading-relaxed">
-            As a producer, VFP's four short films—Theetu (Untouchability), Small Wishes, Dinner Party, 
-            and Little Wings—have earned international acclaim, winning numerous "Best Short" prizes, 
-            five Critics Choice Award nominations, and the 71st Indian National Award for Best 
-            Cinematography (Non-Feature, for Little Wings).
+            As a producer, VFP's four short films— Untouchability, Small Wishes, Dinner Party, 
+            and Little Wings—have earned international acclaim, winning numerous awards, 
+            five Critics Choice Award nominations, and a 71st Indian National Award.
           </p>
 
           <p className="leading-relaxed">
-            VFP is now working to develop more compelling, globally resonant films.
+            VFP is now developing more compelling, globally resonant films.
           </p>
         </div>
 
@@ -39,20 +38,20 @@ export default function AboutUsPage() {
             Viewfinder Film Productions (VFP) Inc. is a Toronto-based marketing and production company
             dedicated to the international promotion of creators—particularly those of South Asian 
             descent—wherever they are in the world. Founded in 2016 by producer and consultant 
-            <b> Dilani Rabindran</b> (formerly operating as Viewfinder Film Consulting), VFP has creatively 
+            <b> Dilani Rabindran</b>, VFP (formerly operating as Viewfinder Film Consulting) has creatively 
             consulted on and represented over 45 films, securing 120+ official festival selections 
             for films from around the world.
           </p>
 
           <p className="leading-relaxed">
-            Since expanding into production, VFP has produced four internationally acclaimed short films: 
-            Theetu (2020), Chinna Chinna Aasai / Small Wishes (2022), Dinner Party (2024), and Little 
-            Wings (2022). Collectively, these films have screened at top festivals worldwide, winning 
+            Since expanding into production, VFP has produced <b>four internationally acclaimed short films: </b> 
+            Untouchability (Theetu), Small Wishes, Dinner Party, and Little 
+            Wings. Collectively, these films have screened at top festivals worldwide, winning 
             numerous "Best Short" awards and earning recognition from prestigious bodies including the 
-            71st Indian National Film Awards (Little Wings – Best Cinematography, Non-Feature) and the 
-            Critics Choice Awards (five nominations in 2023). Little Wings also became the only Tamil 
+            71st Indian National Film Awards (Little Wings – Best Cinematography, Non-Feature) and 5 nominations 
+            from the Indian Critics Choice Awards. Little Wings also became the only Tamil 
             film selected for the Indian Panorama at the 53rd International Film Festival of India, 
-            while Small Wishes achieved viral success with over 150K YouTube views.
+            while Small Wishes has achieved viral success with over 150K YouTube views.
           </p>
 
           <p className="leading-relaxed">
