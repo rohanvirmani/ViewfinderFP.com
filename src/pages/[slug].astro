@@ -62,37 +62,34 @@ const { film } = Astro.props;
             { film.sfx ? <li><span class="font-semibold">SFX:</span> {film.sfx}</li> : '' }
             { film.productionDesigner ? <li><span class="font-semibold">Production Designer:</span> {film.productionDesigner}</li> : '' }
             { film.makeupHair ? <li><span class="font-semibold">Makeup and Hair:</span> {film.makeupHair}</li> : '' }
-
-
-            
+            { film.soundDesigner ? <li><span class="font-semibold">Sound Design & Mixing:</span> {film.soundDesigner}</li> : '' }
+            { film.studio ? <li><span class="font-semibold">Studio:</span> {film.studio}</li> : '' }
+             { film.cameraUnit ? <li><span class="font-semibold">Camera Unit:</span> {film.cameraUnit}</li> : '' }
+             { film.DI ? <li><span class="font-semibold">DI:</span> {film.DI}</li> : '' }
             <li><span class="font-semibold">Production Company:</span> {film.productionCompany}</li>
             <li><span class="font-semibold">Production Country:</span> {film.productionCountry}</li>
+
              {film.artDirector ? <li><span class="font-semibold">Art Director:</span> {film.artDirector}</li> :''}
              
-             
-             { film.studio ? <li><span class="font-semibold">Studio:</span> {film.studio}</li> : '' }
+                
              
              { film.photographer ? <li><span class="font-semibold">Photographer:</span> {film.photographer}</li> : '' }
           </ul>
         </div>
         <div class="w-full md:w-1/2">
           <ul class="list-disc pl-6 space-y-2 text-base md:text-lg">
-            { film.cameraUnit ? <li><span class="font-semibold">Camera Unit:</span> {film.cameraUnit}</li> : '' }
-            { film.DI ? <li><span class="font-semibold">DI:</span> {film.DI}</li> : '' }
-            { film.posterDesign ? <li><span class="font-semibold">Poster Design:</span> {film.posterDesign}</li> : '' }
+           
+            
+            
             { film.releasePartner ? <li><span class="font-semibold">Release Partner:</span> {film.releasePartner}</li> : '' }
-            { film.soundDesigner ? <li><span class="font-semibold">Sound Designer:</span> {film.soundDesigner}</li> : '' }
             { film.syncrecorder ? <li><span class="font-semibold">Sync Dialogue Recorder:</span> {film.syncrecorder}</li> : '' }
             { film.colorist ? <li><span class="font-semibold">Colorist:</span> {film.colorist}</li> : '' }
             { film.productionAssistant ? <li><span class="font-semibold">Production Assistant:</span> {film.productionAssistant}</li> : '' }
             { film.postproductionManager ? <li><span class="font-semibold">Post Production Manager:</span> {film.postproductionManager}</li> : '' }
-            { film.mixing ? <li><span class="font-semibold">Mix & Master:</span> {film.mixing}</li> : '' }
-            { film.recordmixMastering ? <li><span class="font-semibold">Recorded Mixed & Master Studio:</span> {film.recordmixMastering}</li> : '' }
-             
-             
+            
               <li><span class="font-semibold">Genre:</span> {film.genre}</li>
               <li><span class="font-semibold">Length:</span> {film.runningTime}</li>
-              <li><span class="font-semibold">Certification:</span> {film.certification}</li>
+           
               <li><span class="font-semibold">Festivals & Awards:</span>
                 <ul class="list-disc pl-8">
                   {film.festivals.map((festival) => (
