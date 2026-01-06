@@ -17,16 +17,16 @@ export default function ProjectsPage() {
                className="w-full block relative group">
               <div className="relative w-full">
                 {/* Aspect ratio container */}
-                <div className="w-full relative basis-2/3 pb-[56.25%]">
+                <div className="w-full relative pb-[56.25%] md:basis-2/3 md:pb-[56.25%]">
                   <img 
                     src={project.images[0]} 
                     alt={project.title} 
-                    className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 scale-[0.7]"
+                    className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 scale-100 md:scale-[0.7]"
                     loading="lazy"
                   />
                   
                   {/* Mobile: Always visible overlay */}
-                  <div className="md:hidden absolute inset-0 flex justify-center items-center  bg-black/30">
+                  <div className="md:hidden absolute inset-0 flex justify-center items-center bg-black/30">
                     <h3 className="text-white text-4xl sm:text-5xl font-bold text-center p-4 leading-tight">
                       {project.title}
                     </h3>

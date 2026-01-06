@@ -17,7 +17,7 @@ export default function PressLinksPage() {
           <ul class="list-disc pl-8 space-y-2 text-base md:text-lg text-left">
             <li><a href ="https://tamilculture.com/the-power-of-patience-building-bridges-for-south-asian-filmmakers"> The Power of Patience: Building Bridges for South Asian Filmmakers" </a> </li>
 
-            <li><a href ="https://tr.ee/Xchm0lqnm3">Dilani Rabindran on Basement Reels Podcast</a></li>
+            <li><a href ="https://open.spotify.com/episode/2q3crizqtOBsFlqYBDxfFs?si=U_0BxCZnSuaTsRRsT9ndTw&pi=yFw5b2xVSsmqo&t=6">Dilani Rabindran on Basement Reels Podcast</a></li>
 
             <li>
               <a href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2151537">
