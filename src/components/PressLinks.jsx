@@ -15,24 +15,24 @@ export default function PressLinksPage() {
         <div className="space-y-4 md:space-y-6  md:text-base lg:text-lg">
         
           <ul class="list-disc pl-8 space-y-2 text-base md:text-lg text-left">
-            <li><a href ="https://tamilculture.com/the-power-of-patience-building-bridges-for-south-asian-filmmakers"> The Power of Patience: Building Bridges for South Asian Filmmakers" </a> </li>
+            <li><a href ="https://tamilculture.com/the-power-of-patience-building-bridges-for-south-asian-filmmakers"> The Power of Patience: Building Bridges for South Asian Filmmakers </a> </li>
 
             <li><a href ="https://open.spotify.com/episode/2q3crizqtOBsFlqYBDxfFs?si=U_0BxCZnSuaTsRRsT9ndTw&pi=yFw5b2xVSsmqo&t=6">Dilani Rabindran on Basement Reels Podcast</a></li>
 
             <li>
               <a href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2151537">
-              'Little Wings' wins 71st National Award for Best Cinematography, Non-Feature Films"
+              'Little Wings' wins 71st National Award for Best Cinematography, Non-Feature Films
           </a>
           </li>
 
           <li><a href ="https://timesofindia.indiatimes.com/entertainment/tamil/movies/news/unbelievable-but-validating-cinematographer-meenakshi-on-her-national-award-win/articleshow/123317735.cms">'Little Wings' Cinematographer Meenakshi on her National Award win - Times of India</a> </li>
 
           <li><a href ="https://northeastfilmjournal.com/film-review-little-wings-2022-the-cruel-and-amiable-quirks-of-fate">
-          'Little Wings': "The cruel and amiable quirks of fate" 
+          'Little Wings': "The cruel and amiable quirks of fate 
           </a>
           </li>
 
-          <li><a href='https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=1878391'>‘Little Wings'’ is a distinctive take on how patriarchy subdues women</a></li>
+          <li><a href='https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=1878391'>'Little Wings' is a distinctive take on how patriarchy subdues women</a></li>
 
           <li><a href ='https://filmthreat.com/reviews/little-wings/'>'Little Wings' Review by Film Threat Movie Guide </a></li>
 
