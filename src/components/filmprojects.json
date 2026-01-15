@@ -2,7 +2,7 @@
   {
     "slug": "little-wings",
     "title": "Little Wings",
-    "about": "<p>\"Little Wings\" is VFP's third original production, directed by Naveen Mu. The Tamil-language short follows an elderly woman trapped in a bitter marriage who is pushed to the brink when her paralyzed husband sets out to consume her pet rooster. The film won multiple Best Film awards on the festival circuit, earned five Critics Choice Award nominations, and was the only Tamil short selected for the Indian Panorama at the 53rd International Film Festival of India. Its crowning achievement is winning the 71st Indian National Film Award for Best Cinematography (Non-Feature) in 2025 — a landmark honour that firmly established VFP's reputation in international independent cinema.</p>",
+    "about": "<p>\"Little Wings\" is VFP's third original production, directed by Naveen Mu. The Tamil-language short follows an elderly woman trapped in a bitter marriage who is pushed to the brink when her paralyzed husband sets out to consume her pet rooster. The film won multiple Best Film awards on the festival circuit, earned five Critics Choice Award nominations, and was the only Tamil short selected for the Indian Panorama at the 53rd International Film Festival of India. Its crowning achievement is winning the 71st Indian National Film Award for Best Cinematography (Non-Feature) in 2025 — a landmark honour that firmly established VFP's reputation in international independent cinema.</p> </br> <p>The film will be released by prominent Indian production and distribution company, Dream Warrior Pictures.</p>",
     "images": [
       "/images/LittleWings/THUMBNAIL.png",
       "/images/LittleWings/2.png",
@@ -49,7 +49,9 @@
       "Habitat Film Festival 2023 (Delhi, India)",
       "New York Indian Film Festival 2023 (Nominated, Best Short Film)",
       "Mumbai International Film Festival 2024 (Nominated, National Competition)"
-    ]
+    ],
+    "filmlink" : "https://www.youtube.com/embed/7_H4yMb853k?si=EINz1SLsvv5GEvHf",
+    "releasePartner": "Dream Warrior Pictures"
   },
   {
     "slug": "small-wishes",
