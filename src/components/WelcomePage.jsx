@@ -1,5 +1,4 @@
 // src/components/WelcomePage.jsx
-import React from 'react';
 import '../styles/pageStyles.css';
 
 export default function WelcomePage() {

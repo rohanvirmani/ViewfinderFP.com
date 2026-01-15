@@ -48,48 +48,51 @@ const { film } = Astro.props;
           <ul class="list-disc pl-6 space-y-2 text-base md:text-lg">
             <li><span class="font-semibold">Director:</span> {film.director}</li>
             <li><span class="font-semibold">Producer:</span> {film.producers}</li>
-            {film.coproducers ? <li><span class="font-semibold">CoProducer:</span> {film.coproducers}</li> :'' }
+            {film.coproducers ? <li><span class="font-semibold">Co-Producer(s):</span> {film.coproducers}</li> :'' }
             <li><span class="font-semibold">Writer:</span> {film.writer}</li>
              <li><span class="font-semibold">Cast:</span> {film.cast}</li>
              <li><span class="font-semibold">Cinematographer:</span> {film.cinematographer}</li>
-             <li><span class="font-semibold">Asst. Cinematographers:</span> {film.asstCinematographer}</li>
+              {film.editor ? <li><span class="font-semibold">Editor:</span> {film.editor}</li> :'' }
              <li><span class="font-semibold">Music Director:</span> {film.music}</li>
-             {film.editor ? <li><span class="font-semibold">Editor:</span> {film.editor}</li> :'' }
+             {film.artDirector ? <li><span class="font-semibold">Art Director:</span> {film.artDirector}</li> :''}
             {film.associateDirector ? <li><span class="font-semibold">Asst. Director:</span> {film.associateDirector}</li> :''}
-            {film.lyricist? <li><span class="font-semibold">Lyricist:</span> {film.lyricist}</li> :''}
+            {film.asstCinematographer ? <li><span class="font-semibold">Asst. Cinematographer:</span> {film.asstCinematographer}</li> :''}
+            { film.productionAssistant ? <li><span class="font-semibold">Production Assistant:</span> {film.productionAssistant}</li> : '' }
              <li><span class="font-semibold">Dialogue:</span> {film.dialogue}</li>
-            { film.costumeDesigner ? <li><span class="font-semibold">Costumer Designer:</span> {film.costumeDesigner}</li> : '' }
-            { film.singers ? <li><span class="font-semibold">Singers:</span> {film.singers}</li> : '' }
-            { film.sfx ? <li><span class="font-semibold">SFX:</span> {film.sfx}</li> : '' }
-            { film.productionDesigner ? <li><span class="font-semibold">Production Designer:</span> {film.productionDesigner}</li> : '' }
-            { film.makeupHair ? <li><span class="font-semibold">Makeup and Hair:</span> {film.makeupHair}</li> : '' }
+            {film.lyricist? <li><span class="font-semibold">Lyricist:</span> {film.lyricist}</li> :''}
+             { film.cameraUnit ? <li><span class="font-semibold">Camera Unit:</span> {film.cameraUnit}</li> : '' }
+             { film.sfx ? <li><span class="font-semibold">SFX:</span> {film.sfx}</li> : '' }
+            { film.DI ? <li><span class="font-semibold">DI:</span> {film.DI}</li> : '' }
             { film.soundDesigner ? <li><span class="font-semibold">Sound Design:</span> {film.soundDesigner}</li> : '' }
             { film.soundMixing ? <li><span class="font-semibold">Sound Mixing:</span> {film.soundMixing}</li> : '' }
             { film.syncSound ? <li><span class="font-semibold">Sync Sound:</span> {film.syncSound}</li> : '' }
-            { film.studio ? <li><span class="font-semibold">Studio:</span> {film.studio}</li> : '' }
-             { film.cameraUnit ? <li><span class="font-semibold">Camera Unit:</span> {film.cameraUnit}</li> : '' }
-             { film.DI ? <li><span class="font-semibold">DI:</span> {film.DI}</li> : '' }
-            <li><span class="font-semibold">Production Company:</span> {film.productionCompany}</li>
-            <li><span class="font-semibold">Production Country:</span> {film.productionCountry}</li>
+            { film.syncrecorder ? <li><span class="font-semibold">Sync Dialogue Recorder:</span> {film.syncrecorder}</li> : '' }
+            { film.photographer ? <li><span class="font-semibold">Stills Photographer:</span> {film.photographer}</li> : '' }
 
-             {film.artDirector ? <li><span class="font-semibold">Art Director:</span> {film.artDirector}</li> :''}
+
+
+            { film.costumeDesigner ? <li><span class="font-semibold">Costume Designer:</span> {film.costumeDesigner}</li> : '' }
+            { film.makeupHair ? <li><span class="font-semibold">Makeup and Hair:</span> {film.makeupHair}</li> : '' }
+            { film.singers ? <li><span class="font-semibold">Singers:</span> {film.singers}</li> : '' }
+            { film.studio ? <li><span class="font-semibold">Studio:</span> {film.studio}</li> : '' }
+            
+    
              
-                
              
-             { film.photographer ? <li><span class="font-semibold">Photographer:</span> {film.photographer}</li> : '' }
           </ul>
         </div>
         <div class="w-full md:w-1/2">
           <ul class="list-disc pl-6 space-y-2 text-base md:text-lg">
            
+            { film.productionDesigner ? <li><span class="font-semibold">Production Designer:</span> {film.productionDesigner}</li> : '' }   
+            <li><span class="font-semibold">Production Company:</span> {film.productionCompany}</li>
             
             
             { film.releasePartner ? <li><span class="font-semibold">Release Partner:</span> {film.releasePartner}</li> : '' }
-            { film.syncrecorder ? <li><span class="font-semibold">Sync Dialogue Recorder:</span> {film.syncrecorder}</li> : '' }
             { film.colorist ? <li><span class="font-semibold">Colorist:</span> {film.colorist}</li> : '' }
-            { film.productionAssistant ? <li><span class="font-semibold">Production Assistant:</span> {film.productionAssistant}</li> : '' }
-            { film.postproductionManager ? <li><span class="font-semibold">Post Production Manager:</span> {film.postproductionManager}</li> : '' }
             
+            { film.postproductionManager ? <li><span class="font-semibold">Post Production Manager:</span> {film.postproductionManager}</li> : '' }
+            <li><span class="font-semibold">Production Country:</span> {film.productionCountry}</li>
               <li><span class="font-semibold">Genre:</span> {film.genre}</li>
               <li><span class="font-semibold">Length:</span> {film.runningTime}</li>
            
@@ -107,7 +110,7 @@ const { film } = Astro.props;
       </div>
     </section>
   { film.filmlink  ?
-    <section class="mt-6 md:mt-12">
+    <section id ="film-video" class="mt-6 md:mt-12">
       <div class="aspect-video w-full max-w-[1280px] mx-auto">
          <iframe 
           class="w-full h-full"

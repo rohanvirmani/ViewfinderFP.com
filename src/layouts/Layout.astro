@@ -2,6 +2,7 @@
 // This is the "frontmatter" section for your Astro component.
 // You can define props, import components, or fetch data here.
 import Header from './Header.astro';
+import AnnouncementBanner from '../components/AnnouncementBanner.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -9,19 +10,26 @@ interface Props {
   description?: string;
   image?: string;
   url?: string;
+  showBanner?: boolean;
 }
 
 const { 
   title = 'Viewfinder Film Productions Inc.',
   description = 'Viewfinder Film Productions (VFP) Inc. is a Toronto-based marketing and production company championing diverse creators, especially those of South Asian descent.',
   image = '/images/socialPreview.jpg',
-  url = 'https://viewfinderfp.com'
+  url = 'https://viewfinderfp.com',
+  showBanner = true
 } = Astro.props;
 
 // Convert relative image paths to absolute URLs for social sharing
 const absoluteImageUrl = image.startsWith('http') 
   ? image 
   : `https://viewfinderfp.com${image}`;
+
+// Calculate padding based on banner visibility
+const paddingClass = showBanner 
+  ? 'pt-[100px] md:pt-[170px]' // 80px + 20px for mobile, 130px + 20px for desktop
+  : 'pt-[80px] md:pt-[130px]';  // Original header heights
 ---
 
 <!doctype html>
@@ -67,7 +75,12 @@ const absoluteImageUrl = image.startsWith('http')
   </head>
   <body class="bg-[rgba(224,219,219,0.7)] overflow-y-auto">
     <Header/>
-    <slot class="pt-[80px] md:pt-[130px]" />
+    {showBanner && <AnnouncementBanner
+      message="📣 Dream Warrior Pictures to release VFP’s “Little Wings”! Trailer out now!"
+      duration={6000}
+      link ="/little-wings#film-video"
+    />}
+    <slot class={paddingClass} />
   </body>
 </html>
 

@@ -2,7 +2,7 @@
   {
     "slug": "little-wings",
     "title": "Little Wings",
-    "about": "<p>\"Little Wings\" is VFP's third original production, directed by Naveen Mu. The Tamil-language short follows an elderly woman trapped in a bitter marriage who is pushed to the brink when her paralyzed husband sets out to consume her pet rooster. The film won multiple Best Film awards on the festival circuit, earned five Critics Choice Award nominations, and was the only Tamil short selected for the Indian Panorama at the 53rd International Film Festival of India. Its crowning achievement is winning the 71st Indian National Film Award for Best Cinematography (Non-Feature) in 2025 — a landmark honour that firmly established VFP's reputation in international independent cinema.</p>",
+    "about": "<p>\"Little Wings\" is VFP's third original production, directed by Naveen Mu. The Tamil-language short follows an elderly woman trapped in a bitter marriage who is pushed to the brink when her paralyzed husband sets out to consume her pet rooster. The film won multiple Best Film awards on the festival circuit, earned five Critics Choice Award nominations, and was the only Tamil short selected for the Indian Panorama at the 53rd International Film Festival of India. Its crowning achievement is winning the 71st Indian National Film Award for Best Cinematography (Non-Feature) in 2025 — a landmark honour that firmly established VFP's reputation in international independent cinema.</p> </br> <p>The film will be released by prominent Indian production and distribution company, Dream Warrior Pictures.</p>",
     "images": [
       "/images/LittleWings/THUMBNAIL.png",
       "/images/LittleWings/2.png",
@@ -18,7 +18,7 @@
     "director": "Naveen Mu",
     "language": "Tamil",
     "producers": "Dilani Rabindran",
-    "coproducer": "Rajumurugan",
+    "coproducers": "Rajumurugan",
     "writer": "Naveen Mu",
     "runningTime": "20:52 minutes",
     "genre": "Drama",
@@ -49,7 +49,9 @@
       "Habitat Film Festival 2023 (Delhi, India)",
       "New York Indian Film Festival 2023 (Nominated, Best Short Film)",
       "Mumbai International Film Festival 2024 (Nominated, National Competition)"
-    ]
+    ],
+    "filmlink" : "https://www.youtube.com/embed/7_H4yMb853k?si=EINz1SLsvv5GEvHf",
+    "releasePartner": "Dream Warrior Pictures"
   },
   {
     "slug": "small-wishes",
@@ -65,6 +67,7 @@
       "/images/SmallWishes/7.png"
     ],
     "director": "Santhosh Jay & Sabareesh Subramaniam",
+    "artDirector":"Maya",
     "writer": "Santhosh Jay",
     "associateDirector": "Karthikeyan Rangasamy",
     "language": "Tamil",
@@ -72,7 +75,7 @@
     "coproducers": "Prithivi Adithya, Santhosh Jay, Sabareesh Subramaniam",
     "starring": "Michael Black",
     "runningTime": "29:48 minutes",
-    "genre": "Sci-Fi, Adventure",
+    "genre": "Drama",
     "productionCompany": "Viewfinder Film Productions Inc.",
     "productionCountry": "India",
     "cinematographer": "Praveen Kumar Raja",
@@ -127,7 +130,7 @@
     "editor": "Sundar Narayanan",
     "music": "Srikant Krishna",
     "cast": "Agathiyan, Gopalakrishnan, Suruki, Rajasekar, Vijaishri",
-    "dialogue": "A mix of witty and dramatic lines that enhance the storytelling.",
+    "dialogue": "Tamil",
     "certification": "PG-13",
     "festivals": [
       "L’Age d'Or International Arthouse Film Festival 2020 (India)",
@@ -145,7 +148,7 @@
   {
     "slug": "dinner-party",
     "title": "Dinner Party",
-    "about": "<p>\"Dinner Party\" is VFP's fourth original production, filmed in Toronto in 2024, directed by Sabareesh Subramaniam & written by BC-based Payal Raj. The heartfelt short follows a young South Asian Canadian couple as they prepare a Diwali dinner for their families, only to have the evening unravel when a disagreement about starting a family comes to light. The film has screened at three international film festivals and is set for public release in 2025, continuing VFP's mission to tell authentic, culturally rooted stories that resonate with diverse audiences.</p>",
+    "about": "<p>\"Dinner Party\" is VFP's fourth original production, filmed in Toronto, directed by Sabareesh Subramaniam & written by BC-based Payal Raj. The heartfelt short follows a young South Asian Canadian couple as they prepare a Diwali dinner for their families, only to have the evening unravel when a disagreement about starting a family comes to light. The film has screened at three international film festivals and is set for public release soon, continuing VFP's mission to tell authentic, culturally rooted stories that resonate with diverse audiences.</p>",
     "images": [
       "/images/DinnerParty/THUMBNAIL.png",
       "/images/DinnerParty/2.png",
@@ -166,7 +169,8 @@
     "genre": "Drama, Comedy",
     "productionCompany": "Viewfinder Film Productions Inc.",
     "productionCountry": "Canada",
-    "cinematographer": "Jey Manik, Pranavan Premathas",
+    "cinematographer": "Jey Manik",
+    "asstCinematographer": "Pranavan Premathas",
     "editor": "Arun Prasad",
     "makeupHair": "Mehek",
     "music": "Anagha Veeranarayanan",
@@ -178,6 +182,9 @@
       "International Film Festival of South Asia (IFFSA) 2024 (Toronto, Canada)",
       "Filmi Toronto's South Asian Film Festival 2024",
       "Canada Shorts Film Festival 2024 - Award of Excellence (Toronto, Canada)"
-    ]
+    ],
+    "filmlink" : "https://www.youtube.com/embed/Yht2a11iF8A?si=2lsSMyChGNROfk_i",
+    "artDirector":"Dilani Rabindran",
+    "costumeDesigner" : "Dilani Rabindran"
   }
 ]

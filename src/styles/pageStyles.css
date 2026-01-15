@@ -1,3 +1,11 @@
+/* Define CSS variables for dynamic spacing */
+:root {
+  --header-height-mobile: 120px;
+  --header-height-desktop: 160px;
+  --banner-height: 80px;
+  --banner-margin: 20px;
+}
+
 /* Base styles */
 .page-wrapper {
     width: 100%;
@@ -36,8 +44,17 @@
     justify-content: center;
     align-items: center;
     font-family: 'Inter', sans-serif;
-    margin-top: 130px;
     background-color: rgba(189, 186, 186, 0.7);
+    
+    /* Dynamic margin-top based on banner visibility */
+    margin-top: calc(var(--header-height-mobile) + var(--banner-margin));
+}
+
+@media (min-width: 768px) {
+    .page-content {
+        padding: 20px;
+        margin-top: calc(var(--header-height-desktop) + var(--banner-margin));
+    }
 }
 
 .page-content h1, .page-content h2 {
@@ -47,10 +64,6 @@
 }
 
 @media (min-width: 768px) {
-    .page-content {
-        padding: 20px;
-    }
-    
     .page-content h1, .page-content h2 {
         font-size: 3em;
         margin-bottom: 20px;
@@ -131,13 +144,13 @@
     margin: 0 auto;
     padding: 1.5rem;
     position: relative;
-    margin-top: 95px;
+    margin-top: calc(var(--header-height-mobile) + var(--banner-margin));
 }
 
 @media (min-width: 768px) {
     .projects-page .page-content {
-        max-height: calc(100vh - 130px); /* Adjusted for desktop */
-        margin-top: 130px;
+        max-height: calc(100vh - 130px);
+        margin-top: calc(var(--header-height-desktop) + var(--banner-margin));
     }
 }
 
@@ -207,6 +220,15 @@
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   -webkit-overflow-scrolling: touch;
+  margin-top: calc(var(--header-height-mobile) + var(--banner-margin));
+}
+
+@media (min-width: 768px) {
+  .about-us-page .page-content {
+    padding: 2rem;
+    max-height: calc(100vh - 130px);
+    margin-top: calc(var(--header-height-desktop) + var(--banner-margin));
+  }
 }
 
 /* Custom scrollbar styling */
@@ -225,7 +247,7 @@
 
 /* Mobile-first text styling */
 .about-us-page .page-content p {
-font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
   text-align: left;
   margin-bottom: 1rem;
   font-size: 0.9rem;
@@ -274,7 +296,6 @@ font-family: 'Inter', sans-serif;
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-  margin-top: 130px;
 }
 
 /* Improve touch scrolling */
@@ -292,7 +313,7 @@ font-family: 'Inter', sans-serif;
     padding: 1rem;
     margin: 1rem;
     border-radius: 8px;
-    margin-top: 130px;
+    margin-top: calc(var(--header-height-mobile) + var(--banner-margin));
 }
 
 @media (min-width: 768px) {
@@ -300,6 +321,7 @@ font-family: 'Inter', sans-serif;
         width: 60%;
         padding: 2rem;
         margin-left: 20%;
+        margin-top: calc(var(--header-height-desktop) + var(--banner-margin));
     }
 }
 
@@ -347,7 +369,6 @@ font-family: 'Inter', sans-serif;
         height: -webkit-fill-available;
     }
 }
-
 
 /* Contact Us Page Styles */
 .contact-us-page {
@@ -430,4 +451,15 @@ font-family: 'Inter', sans-serif;
 .contact-us-page input:focus,
 .contact-us-page textarea:focus {
     font-size: inherit;
+}
+
+/* Modifier class for when banner is hidden */
+body.banner-hidden .page-content {
+    margin-top: var(--header-height-mobile);
+}
+
+@media (min-width: 768px) {
+    body.banner-hidden .page-content {
+        margin-top: var(--header-height-desktop);
+    }
 }
