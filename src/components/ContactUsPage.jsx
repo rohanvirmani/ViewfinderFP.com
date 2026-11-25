@@ -1,5 +1,5 @@
 // src/components/ContactUsPage.jsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import '../styles/pageStyles.css';
 import { actions } from 'astro:actions';
 
@@ -24,7 +24,7 @@ export default function ContactUsPage() {
   
   try {
     const formData = new FormData(e.target);
-    const result = await actions.send(formData);
+    await actions.send(formData);
    
       alert('Message sent successfully!');
       // Reset form

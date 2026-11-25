@@ -1,17 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import films from '../components/filmprojects.json';
-import {Swiper, SwiperSlide} from 'swiper/react'
-import React from 'react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import SwiperCarousel from '../components/FilmImages.jsx';
-
-// import required modules
-import { Navigation, Pagination } from 'swiper/modules';
-import type { loadRenderers } from 'astro:container';
 
 export async function getStaticPaths() {
   return films.map((film) => ({
@@ -116,7 +106,6 @@ const { film } = Astro.props;
           class="w-full h-full"
           src={film.filmlink}
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen>

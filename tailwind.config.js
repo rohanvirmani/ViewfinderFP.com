@@ -1,16 +1,14 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    './src/**/*.{js,jsx,ts,tsx,astro}',
   ],
   theme: {
     extend: {
       fontFamily: {
-        'bebas': ['"Bebas Neue"', 'sans-serif'],
-        'sans': ['Inter', 'system-ui', 'sans-serif'], // Update default sans font
-        
+        bebas: ['"Bebas Neue"', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
   plugins: [],
-}
+};

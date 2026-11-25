@@ -1,7 +1,6 @@
 // src/components/MainCarousel.jsx
-import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectFade, Autoplay, HashNavigation } from 'swiper/modules'; // Add Autoplay if desired
+import { Navigation, Pagination, EffectFade, HashNavigation } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
