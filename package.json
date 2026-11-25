@@ -2,7 +2,7 @@
   "name": "",
   "type": "module",
   "version": "0.0.1",
-    "scripts": {
+  "scripts": {
     "dev": "wrangler types && astro dev",
     "start": "wrangler types && astro dev",
     "build": "wrangler types && astro check && astro build",
@@ -10,13 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.7",
-    "@astrojs/react": "^4.3.0",
+    "@astrojs/cloudflare": "^14.4.9",
+    "@astrojs/react": "^7.1.9",
     "@tailwindcss/vite": "^4.1.12",
     "@types/react": "^19.1.7",
     "@types/react-dom": "^19.1.6",
-    "astro": "^5.12.9",
-    "nodejs": "^0.0.0",
+    "astro": "^7.4.13",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-swiper": "^0.1.5",
@@ -25,6 +24,8 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "^5.9.3",
     "wrangler": "^4.34.0"
   }
 }
