@@ -1,5 +1,4 @@
 // src/components/ProjectsPage.jsx
-import React from 'react';
 import '../styles/pageStyles.css';
 import filmProjects from './filmprojects.json';
 

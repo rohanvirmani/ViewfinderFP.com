@@ -1,5 +1,3 @@
-
-
 // src/actions/index.ts
 import { ActionError, defineAction } from 'astro:actions';
 import { z } from 'zod';
@@ -12,11 +10,11 @@ export const server = {
     input: z.object({
       firstName: z.string().min(1, { message: 'First name is required.' }),
       lastName: z.string().min(1, { message: 'Last name is required.' }),
-      email: z.string().email({ message: 'A valid email is required.' }),
+      email: z.email({ error: 'A valid email is required.' }),
       message: z.string().min(1, { message: 'Message cannot be empty.' }),
       subscribe: z.boolean().default(false),
     }),
-    handler: async (data, context) => { 
+    handler: async (data) => { 
       try {
         // Access environment variables through context.locals.runtime.env
         //const { env } = context.locals.runtime;

@@ -1,7 +1,6 @@
 {
   "name": "viewfinderfp-production",
-  "main": "./dist/_worker.js/index.js",
-  // Update to today's date
+  "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2025-09-09",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
