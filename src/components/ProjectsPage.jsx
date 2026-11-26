@@ -1,8 +1,7 @@
 // src/components/ProjectsPage.jsx
 import '../styles/pageStyles.css';
-import filmProjects from './filmprojects.json';
 
-export default function ProjectsPage() {
+export default function ProjectsPage({ films }) {
   return (
     <div className="page-wrapper projects-page"
          style={{ backgroundImage: 'url(/images/CCA_BTS.jpg)' }}>
@@ -10,8 +9,8 @@ export default function ProjectsPage() {
       <div className="page-content projects-page px-4 md:px-8 w-full md:w-[90%] lg:w-[80%] max-w-[1920px] mt-[95px] md:mt-[130px]">
         <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Film Projects</h2>
         <div className="project-image-container flex flex-col gap-6 md:gap-8 lg:gap-10 w-full">
-          {filmProjects.map((project) => (
-            <a key={project.id} 
+          {films.map((project) => (
+            <a key={project.slug}
                href={`/${project.slug}`} 
                className="w-full block relative group">
               <div className="relative w-full">

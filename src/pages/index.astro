@@ -2,14 +2,18 @@
 // src/pages/index.astro
 import MainCarousel from '../components/MainCarousel.jsx';
 import Layout from '../layouts/Layout.astro'; // Optional: if you have a base layout
+import { getCollection } from 'astro:content';
 
 // For client:load, ensure Astro loads the React component immediately
 // and hydrates it on the client.
+const films = (await getCollection('films'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(({ id, data }) => ({ slug: id, ...data }));
 ---
 
 <Layout>
   <main>
-    <MainCarousel client:load />
+    <MainCarousel client:load films={films} />
   </main>
 </Layout>
 

@@ -18,7 +18,7 @@ import Press from './PressLinks';
 // You might need some global CSS for full screen or ensure it's loaded in Astro layout
 import '../styles/global.css'; // Example: for HTML/body height 100%
 
-export default function MainCarousel() {
+export default function MainCarousel({ films }) {
   return (
     <><head><link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@ export default function MainCarousel() {
           <AboutUsPage />
         </SwiperSlide>
         <SwiperSlide data-hash="projects-page">
-          <ProjectsPage />
+          <ProjectsPage films={films} />
         </SwiperSlide>
         <SwiperSlide data-hash="contact-us-page">
           <ContactUsPage />

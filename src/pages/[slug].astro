@@ -1,16 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import films from '../components/filmprojects.json';
 import SwiperCarousel from '../components/FilmImages.jsx';
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
+  const films = await getCollection('films');
   return films.map((film) => ({
-    params: { slug: film.slug },
+    params: { slug: film.id },
     props: { film },
   }));
 }
 
-const { film } = Astro.props;
+const { film: entry } = Astro.props;
+const film = { ...entry.data, slug: entry.id };
+const { Content } = await render(entry);
 ---
 <Layout title={film.title} class="bg-[rgba(212,208,208,0.7)]">
   <div class="mx-auto py-4 md:py-8 px-4 md:px-50 pt-[95px] md:pt-[130px] bg-[rgba(189, 186, 186, 0.7)] max-h-screen overflow-y-auto transparent-scrollbar">
@@ -20,9 +23,8 @@ const { film } = Astro.props;
       </h1>
     </header>
 
-    <section class="mb-6 md:mb-12 text-black">
-      <p class="font-bebas text-base md:text-lg leading-relaxed text-black" set:html={film.about}>
-      </p>
+    <section class="mb-6 md:mb-12 text-black font-bebas text-base md:text-lg leading-relaxed">
+      <Content />
     </section>
 
     <section class="mb-6 md:mb-12">
